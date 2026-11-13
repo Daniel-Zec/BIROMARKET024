@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Icon, img, scrollTo } from '../components/ui.jsx'
 import { ProductCard, useCart } from '../components/Shop.jsx'
 
@@ -23,6 +23,7 @@ const STEPS = [
 const POSTS = [['Poklon koji razumete samo vas dvoje', RB[0], 'creative-ai/cs-blog1.webp', 'Dve šolje sa srcima i poklon'], ['Vodič za cozy dejtove kod kuće', RB[5], 'creative-ai/cs-blog2.webp', 'Puzla sa fotografijom, ćebe i šolje'], ['Strašne priče za plašljive kupce', RB[6], 'creative-ai/cs-blog3.webp', 'Crna majica sa duhom, čarapa i bundeva']]
 
 export default function CreativeShop() {
+  const navigate = useNavigate()
   const pageRef = useRef(null)
   const { add, flyLayer, CartButton } = useCart(pageRef)
   return (
@@ -39,7 +40,7 @@ export default function CreativeShop() {
         </div>
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 28, overflowX: 'auto' }}>
           {CATS.map((n, i) => (
-            <button key={n} onClick={() => scrollTo('ponuda')} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 2px', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
+            <button key={n} onClick={() => (i === 0 ? navigate('/creative-shop/dizajner') : scrollTo('ponuda'))} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 2px', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
           ))}
           <Link to="/" className="cs-to-bm" aria-label="Idi na Biromarket 024">
             <img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="" style={{ height: 19, width: 'auto' }} />
@@ -55,7 +56,7 @@ export default function CreativeShop() {
             <h1 className="h1">Tvoja ideja.<br /><span style={{ color: '#ED1C24' }}>Na</span> <span style={{ color: '#EE7D15' }}>ma</span><span style={{ color: '#55B976' }}>ji</span><span style={{ color: '#437E81' }}>ci.</span></h1>
             <p className="lead" style={{ maxWidth: '34ch' }}>Majice, duksevi, šolje, puzle i kačketi sa tvojom slikom ili tekstom. Dizajniraj sam u online dizajneru – brzo i lako.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-              <button className="btn btn-red" onClick={() => scrollTo('ponuda')}>Otvori dizajner <Icon name="arrow" size={16} stroke={2.2} /></button>
+              <Link to="/creative-shop/dizajner" className="btn btn-red">Otvori dizajner <Icon name="arrow" size={16} stroke={2.2} /></Link>
               <button className="btn btn-glass" onClick={() => scrollTo('ponuda')}>Pogledaj ponudu</button>
             </div>
           </div>

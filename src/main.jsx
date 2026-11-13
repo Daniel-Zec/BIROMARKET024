@@ -8,6 +8,7 @@ import Home from './pages/Home.jsx'
 import Servis from './pages/Servis.jsx'
 import Fotokopirnica from './pages/Fotokopirnica.jsx'
 import Kancelarija from './pages/Kancelarija.jsx'
+import Dizajner from './pages/Dizajner.jsx'
 import CreativeShop from './pages/CreativeShop.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/fotokopirnica" element={<Fotokopirnica />} />
           <Route path="/kancelarija" element={<Kancelarija />} />
           <Route path="/creative-shop" element={<CreativeShop />} />
+          <Route path="/creative-shop/dizajner" element={<Dizajner />} />
           <Route path="*" element={<Home />} />
         </Routes>
         <Reveal />
