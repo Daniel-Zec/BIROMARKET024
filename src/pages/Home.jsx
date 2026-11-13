@@ -14,7 +14,7 @@ const TILES = [
     title: 'Fotokopirnica i štampa', cta: 'Otvori fotokopirnicu',
     text: 'Kopiranje i skeniranje do velikih formata, vizit karte, kalendari i diplome, solventna štampa nalepnica i izloga, štampa na upaljačima i hemijskim.',
     chips: ['Vizit karte', 'Solventna štampa', 'Nalepnice za izloge', 'Upaljači'] },
-  { to: '/kancelarija', kicker: 'Online prodavnica', dot: '#0a7d4f', img: 'kancelarija-pribor-sto.webp', alt: 'Kancelarijski pribor na drvenom stolu',
+  { to: '/kancelarija', kicker: 'Online prodavnica', dot: '#0a7d4f', img: 'kancelarija-ai/km-hero.webp', alt: 'Uredan radni sto sa kancelarijskim materijalom',
     title: 'Kancelarijski materijal', cta: 'Otvori prodavnicu',
     text: 'Papir, registratori, fascikle, pribor za pisanje, toneri i kertridži – naručite online, platite na račun firme, preuzmite ili sačekajte dostavu.',
     chips: ['Papir', 'Registratori', 'Toneri', 'Za firme'] },
