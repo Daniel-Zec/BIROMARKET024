@@ -60,8 +60,14 @@ export default function Servis() {
             <h1 className="h1" style={{ fontSize: 'clamp(40px,5vw,68px)' }}>Aparat stao?<br /><span className="muted">Dolazimo mi.</span></h1>
             <p className="lead" style={{ maxWidth: '36ch' }}>Popravka i održavanje kopir aparata, štampača, multifunkcijskih uređaja i skenera. Ako kvar ne možemo da otklonimo na licu mesta, ostavljamo vam rezervni aparat.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-              <button className="btn btn-red" onClick={() => scrollTo('prijava')}>Prijavi kvar <Icon name="arrow" size={16} stroke={2.2} /></button>
+              <button className="btn btn-red" onClick={() => { setMode(0); setPhase('idle'); scrollTo('prijava') }}>Prijavi kvar <Icon name="arrow" size={16} stroke={2.2} /></button>
+              <button className="btn btn-glass" onClick={() => { setMode(1); setPhase('idle'); scrollTo('prijava') }}>Naruči toner</button>
               <a href="tel:+38124601193" className="btn btn-glass">Pozovi 024/601-193</a>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 24px', fontSize: 14, color: 'var(--muted)' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="wrench" size={18} color="#1d1d1f" />Izlazak na teren</span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="printer" size={18} color="#1d1d1f" />Rezervni aparat dok popravljamo</span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="check" size={18} color="#1d1d1f" />Sertifikovani serviseri</span>
             </div>
             <span className="small">Pon–pet 07–16h · Sub 08–12h · Maksima Gorkog 40, Subotica</span>
           </div>

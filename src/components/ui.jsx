@@ -99,7 +99,6 @@ export function Nav() {
           {LINKS.map(([t, to]) => <NavLink key={to} to={to}>{t}</NavLink>)}
           <Link to="/#kontakt" onClick={() => setTimeout(() => scrollTo('kontakt'), 50)}>Kontakt</Link>
         </nav>
-        <Link to="/servis?prijava=1" className="btn btn-red btn-sm">Prijavi kvar</Link>
       </div>
     </header>
   )

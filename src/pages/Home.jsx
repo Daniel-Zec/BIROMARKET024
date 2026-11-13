@@ -18,7 +18,7 @@ const TILES = [
     title: 'Kancelarijski materijal', cta: 'Otvori prodavnicu',
     text: 'Papir, registratori, fascikle, pribor za pisanje, toneri i kertridži – naručite online, platite na račun firme, preuzmite ili sačekajte dostavu.',
     chips: ['Papir', 'Registratori', 'Toneri', 'Za firme'] },
-  { to: '/creative-shop', kicker: 'creativeshop.rs', dot: '#EE7D15', img: 'bm-majice.webp', alt: 'Ručno oslikana majica na roze podlozi', rainbow: true,
+  { to: '/creative-shop', kicker: 'creativeshop.rs', dot: '#EE7D15', img: 'creative-ai/cs-hero.webp', alt: 'Odštampane majice, šolja, kačket, puzla i plišani meda', rainbow: true,
     title: 'Creative Shop', cta: 'Otvori Creative Shop',
     text: 'Majice, šolje, puzle, kačketi i pokloni sa vašom slikom ili tekstom. Dizajnirajte sami u online dizajneru – mi štampamo.',
     chips: ['Majice', 'Šolje', 'Pokloni', 'Online dizajner'] },
@@ -87,15 +87,6 @@ export default function Home() {
             </span>
             <h1 className="h1" aria-label="Sve za vašu kancelariju, štampu i firmu. Na jednom mestu.">Sve za vašu <RollWord /><br /><span className="muted">Na jednom mestu.</span></h1>
             <p className="lead" style={{ fontSize: 21, maxWidth: '34ch' }}>Servis i prodaja kopir aparata, fotokopirnica i štampa, kancelarijski materijal i Creative Shop – sve iz jedne firme koju znate.</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-              <Link to="/servis?prijava=1" className="btn btn-red">Prijavi kvar <Icon name="arrow" size={16} stroke={2.2} /></Link>
-              <Link to="/servis?prijava=1&toner=1" className="btn btn-glass">Naruči toner</Link>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, fontSize: 14, color: 'var(--muted)' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="wrench" size={18} color="#1d1d1f" />Izlazak na teren</span>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="printer" size={18} color="#1d1d1f" />Rezervni aparat dok popravljamo</span>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="check" size={18} color="#1d1d1f" />Sertifikovani serviseri</span>
-            </div>
           </div>
           <div style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '4 / 3.4' }}>
