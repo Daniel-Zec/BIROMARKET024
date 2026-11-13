@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Count } from 'micro-motion'
+import { Count, Roll } from 'micro-motion'
 import { Nav, Icon, img, scrollTo } from '../components/ui.jsx'
 
 const RAINBOW = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
@@ -58,6 +58,17 @@ function RollNumber({ value }) {
   return <span ref={ref}><Count value={v} duration={700} stagger={45} aria-label={String(value)} /></span>
 }
 
+const WORDS = ['kancelariju', 'štampu', 'servis']
+function RollWord() {
+  const [i, setI] = useState(0)
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const t = setInterval(() => setI((n) => (n + 1) % WORDS.length), 3000)
+    return () => clearInterval(t)
+  }, [])
+  return <span className="roll-word" aria-hidden="true"><Roll variant="roll">{WORDS[i] + '.'}</Roll></span>
+}
+
 export default function Home() {
   const { hash } = useLocation()
   useEffect(() => { if (hash === '#kontakt') setTimeout(() => scrollTo('kontakt'), 80) }, [hash])
@@ -75,7 +86,7 @@ export default function Home() {
               </span>
               godina sa vama · Subotica, od 1995.
             </span>
-            <h1 className="h1">Sve za vašu kancelariju.<br /><span className="muted">Na jednom mestu.</span></h1>
+            <h1 className="h1" aria-label="Sve za vašu kancelariju, štampu i servis. Na jednom mestu.">Sve za vašu <RollWord /><br /><span className="muted">Na jednom mestu.</span></h1>
             <p className="lead" style={{ fontSize: 21, maxWidth: '34ch' }}>Servis i prodaja kopir aparata, fotokopirnica i štampa, kancelarijski materijal i Creative Shop – sve iz jedne firme koju znate.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
               <Link to="/servis?prijava=1" className="btn btn-red">Prijavi kvar <Icon name="arrow" size={16} stroke={2.2} /></Link>

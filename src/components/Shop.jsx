@@ -1,16 +1,33 @@
-import { useRef, useState } from 'react'
-import { Badge, Button, Check, Count, Fly, States, rectIn } from 'micro-motion'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Badge, Button, Check, Count, Fly, Popover, States, rectIn } from 'micro-motion'
 import { Icon, useToast } from './ui.jsx'
 
 /* Cart with a "fly to cart" flight (micro-motion Fly) and a rolling count. */
 export function useCart(pageRef) {
   const cartRef = useRef(null)
+  const wrapRef = useRef(null)
   const [count, setCount] = useState(0)
+  const [items, setItems] = useState([])
+  const [open, setOpen] = useState(false)
   const [flight, setFlight] = useState(null)
   const toast = useToast()
 
-  const add = (imgEl, src, name) => {
+  const remember = (src, name, price) => setItems((list) => {
+    const hit = list.find((x) => x.name === name)
+    return hit ? list.map((x) => (x === hit ? { ...x, qty: x.qty + 1 } : x)) : [...list, { name, src, price, qty: 1 }]
+  })
+
+  useEffect(() => {
+    if (!open) return
+    const down = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false) }
+    const key = (e) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('pointerdown', down); document.addEventListener('keydown', key)
+    return () => { document.removeEventListener('pointerdown', down); document.removeEventListener('keydown', key) }
+  }, [open])
+
+  const add = (imgEl, src, name, price) => {
     toast(`${name} – u korpi`)
+    remember(src, name, price)
     const page = pageRef.current
     if (!page || !imgEl || !cartRef.current) { setCount((c) => c + 1); return }
     const from = rectIn(page, imgEl)
@@ -30,22 +47,54 @@ export function useCart(pageRef) {
     </Fly>
   ) : null
 
-  const CartButton = ({ label = 'Korpa', icon = 'cart' }) => (
-    <span className="cart" ref={cartRef}>
-      <Icon name={icon} size={22} />
-      {label}
-      <Badge tone="accent"><Count value={count} /></Badge>
-    </span>
-  )
+  const live = { wrapRef, cartRef, open, setOpen, items, count, toast }
+  const liveRef = useRef(live); liveRef.current = live
+  const CartButton = useCallback((props) => <MiniCart {...props} {...liveRef.current} />, [])
 
   return { add, flyLayer, CartButton }
+}
+
+function MiniCart({ label = 'Korpa', icon = 'cart', wrapRef, cartRef, open, setOpen, items, count, toast }) {
+  return (
+    <div className="minicart" ref={wrapRef}>
+      <button type="button" aria-haspopup="dialog" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+        <span className="cart" ref={cartRef}>
+          <Icon name={icon} size={22} />
+          {label}
+          <Badge tone="accent"><Count value={count} /></Badge>
+        </span>
+      </button>
+      <Popover show={open} origin="top right" className="mc-panel" role="dialog" aria-label="Korpa"
+        style={{ top: 'calc(100% + 12px)', right: -6, width: 300 }}>
+        {items.length === 0 ? (
+          <div className="mc-empty">Korpa je prazna.</div>
+        ) : (
+          <>
+            <div style={{ maxHeight: 260, overflow: 'auto' }}>
+              {items.map((it) => (
+                <div className="mc-row" key={it.name}>
+                  <img src={it.src} alt="" />
+                  <span>{it.name}</span>
+                  <span style={{ color: 'var(--muted)', whiteSpace: 'nowrap' }}>× {it.qty}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(0,0,0,.08)' }}>
+              <span className="small muted">Ukupno artikala: <b style={{ color: 'var(--ink)' }}><Count value={count} /></b></span>
+              <button type="button" className="btn btn-red btn-sm" onClick={() => { setOpen(false); toast('Prototip – kasa još ne radi') }}>Na kasu</button>
+            </div>
+          </>
+        )}
+      </Popover>
+    </div>
+  )
 }
 
 export function ProductCard({ p, onAdd, dark = '#1d1d1f' }) {
   const imgRef = useRef(null)
   const [added, setAdded] = useState(false)
   const click = () => {
-    onAdd(imgRef.current, p.img, p.name)
+    onAdd(imgRef.current, p.img, p.name, p.price)
     setAdded(true)
     setTimeout(() => setAdded(false), 1600)
   }

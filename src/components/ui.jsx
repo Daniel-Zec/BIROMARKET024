@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Toast } from 'micro-motion'
+import { Follow, Toast, rectIn } from 'micro-motion'
 
 export const img = (name) => `${import.meta.env.BASE_URL}img/${name}`
 
@@ -77,11 +77,25 @@ const LINKS = [
   ['Creative Shop', '/creative-shop'],
 ]
 export function Nav() {
+  const navRef = useRef(null)
+  const [hl, setHl] = useState(null)
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 4)
+    on(); window.addEventListener('scroll', on, { passive: true })
+    return () => window.removeEventListener('scroll', on)
+  }, [])
+  const over = (e) => {
+    const a = e.target.closest('a'); if (!a || !navRef.current) return
+    const r = rectIn(navRef.current, a)
+    setHl({ x: r.x - 12, y: r.y - 7, width: r.width + 24, height: r.height + 14 })
+  }
   return (
-    <header className="nav">
+    <header className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="wrap nav-row">
         <Link to="/" aria-label="Biromarket 024 – naslovna"><img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="Biromarket 024" style={{ height: 30, width: 'auto', display: 'block' }} /></Link>
-        <nav className="navlinks" aria-label="Glavni meni">
+        <nav className="navlinks" aria-label="Glavni meni" ref={navRef} onMouseOver={over} onFocus={over} onMouseLeave={() => setHl(null)} onBlur={() => setHl(null)}>
+          <Follow to={hl} className="nav-hl" aria-hidden="true" />
           {LINKS.map(([t, to]) => <NavLink key={to} to={to}>{t}</NavLink>)}
           <Link to="/#kontakt" onClick={() => setTimeout(() => scrollTo('kontakt'), 50)}>Kontakt</Link>
         </nav>
@@ -90,6 +104,30 @@ export function Nav() {
     </header>
   )
 }
+
+/* Subtle scroll reveal: 8px rise + fade, once. Runs on every route change. */
+const REVEAL = '.sec .kick, .sec .h2, .sec .lead, .tile, .card, .prod, .cat, .gallery > *, .photo, .stat'
+export function Reveal() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return
+    const els = [...document.querySelectorAll(REVEAL)].filter((el) => !el.closest('.nav') && !el.classList.contains('rv-in') && !el.dataset.rvDone)
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) {
+        const t = en.target; t.classList.add('rv-in'); io.unobserve(t)
+        setTimeout(() => { t.classList.remove('rv', 'rv-in'); t.dataset.rvDone = '1' }, 1000)
+      }
+    }), { rootMargin: '0px 0px -6% 0px' })
+    els.forEach((el) => {
+      const sib = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0
+      el.style.setProperty('--rv-d', `${Math.min(sib, 4) * 60}ms`)
+      el.classList.add('rv'); io.observe(el)
+    })
+    return () => io.disconnect()
+  }, [pathname])
+  return null
+}
+
 export function BackLink() {
   return <Link to="/" className="back"><Icon name="back" size={16} stroke={2} />Naslovna</Link>
 }
