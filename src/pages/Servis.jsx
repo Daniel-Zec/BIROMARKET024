@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Button, Check, Collapse, Segmented, Spinner, States } from 'micro-motion'
-import { Nav, Footer, BackLink, Icon, img, scrollTo, useToast } from '../components/ui.jsx'
+import { Nav, Footer, BackLink, Icon, img, scrollTo, useToast, BrandMarquee } from '../components/ui.jsx'
 
 const SERVICES = [
   ['wrench', 'Popravka i održavanje', 'Kopir aparati, štampači, multifunkcijski uređaji, skeneri, laptopovi i računari.'],
@@ -23,7 +23,6 @@ const FAQ = [
   ['Na ekranu je kod greške', 'Zapišite kod (npr. E000, C-2557) i upišite ga u prijavu kvara – serviser će poneti pravi deo i rešiti kvar iz prvog dolaska.'],
   ['Da li dajete rezervni aparat?', 'Da. Ako popravka traje duže, po dogovoru ostavljamo rezervni aparat dok vaš ne bude spreman.'],
 ]
-const BRANDS = ['Canon', 'Kyocera', 'HP', 'Konica Minolta', 'Epson', 'Lexmark', 'Samsung']
 const STATUS = { 0: ['Primljeno', '#f59e0b'], 1: ['Serviser na putu', '#0071e3'], 2: ['Završeno', '#1f9d55'] }
 
 export default function Servis() {
@@ -143,10 +142,7 @@ export default function Servis() {
 
       <section className="sec sec-white">
         <div className="wrap stack" style={{ gap: 32 }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px 36px' }}>
-            <span className="small">Servisiramo i prodajemo:</span>
-            {BRANDS.map((b) => <span key={b} style={{ fontSize: 20, fontWeight: 700, color: '#aeaeb2' }}>{b}</span>)}
-          </div>
+          <BrandMarquee label="Servisiramo i prodajemo:" />
           <div className="stack" style={{ gap: 10, maxWidth: 640, paddingTop: 32 }}><span className="kick">Česti problemi</span><h2 className="h2">Možda rešite i sami.</h2></div>
           <div style={{ borderTop: '1px solid rgba(0,0,0,.08)' }}>
             {FAQ.map(([q, a], i) => (

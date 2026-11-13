@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Count, Roll } from 'micro-motion'
-import { Nav, Icon, img, scrollTo } from '../components/ui.jsx'
+import { Nav, Icon, img, scrollTo, BrandMarquee } from '../components/ui.jsx'
 
 const RAINBOW = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 
@@ -30,7 +30,6 @@ const STATS = [
   { v: 7, label: 'brendova koje servisiramo' },
   { v: 100, plus: true, label: 'zadovoljnih kupaca: opštine, škole, firme' },
 ]
-const BRANDS = ['Canon', 'Kyocera', 'HP', 'Konica Minolta', 'Epson', 'Lexmark', 'Samsung']
 const DEPTS = [
   ['Servis', '024/601-193', '+38124601193', 'servis@biromarket024.rs'],
   ['Fotokopirnica', '024/601-192', '+38124601192', 'kopirnica.bm@gmail.com'],
@@ -164,10 +163,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px 36px', paddingTop: 8 }}>
-            <span className="small">Servisiramo:</span>
-            {BRANDS.map((b) => <span key={b} style={{ fontSize: 20, fontWeight: 700, color: '#aeaeb2' }}>{b}</span>)}
-          </div>
+          <div style={{ paddingTop: 8 }}><BrandMarquee label="Servisiramo:" /></div>
         </div>
       </section>
 

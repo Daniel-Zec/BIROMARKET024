@@ -141,3 +141,23 @@ export function Footer() {
     </footer>
   )
 }
+
+/* Brand logos, scrolling slowly in a loop (pauses on hover). */
+const BRAND_LOGOS = [
+  ['Canon', 'canon', 26], ['Kyocera', 'kyocera', 30], ['HP', 'hp', 34], ['Konica Minolta', 'konica-minolta', 36],
+  ['Epson', 'epson', 22], ['Lexmark', 'lexmark', 28], ['Samsung', 'samsung', 16],
+]
+export function BrandMarquee({ label = 'Servisiramo:' }) {
+  const row = (hidden) => BRAND_LOGOS.map(([name, file, h]) => (
+    <img key={file + hidden} src={`${import.meta.env.BASE_URL}logo/brands/${file}.svg`} alt={hidden ? '' : name}
+      aria-hidden={hidden || undefined} style={{ height: h }} loading="lazy" />
+  ))
+  return (
+    <div className="brands">
+      <span className="small">{label}</span>
+      <div className="marquee">
+        <div className="marquee-track">{row(false)}{row(true)}</div>
+      </div>
+    </div>
+  )
+}
