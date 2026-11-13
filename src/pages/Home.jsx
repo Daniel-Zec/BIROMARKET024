@@ -58,7 +58,7 @@ function RollNumber({ value }) {
   return <span ref={ref}><Count value={v} duration={700} stagger={45} aria-label={String(value)} /></span>
 }
 
-const WORDS = ['kancelariju', 'štampu', 'servis']
+const WORDS = ['kancelariju', 'štampu', 'firmu']
 function RollWord() {
   const [i, setI] = useState(0)
   useEffect(() => {
@@ -86,7 +86,7 @@ export default function Home() {
               </span>
               godina sa vama · Subotica, od 1995.
             </span>
-            <h1 className="h1" aria-label="Sve za vašu kancelariju, štampu i servis. Na jednom mestu.">Sve za vašu <RollWord /><br /><span className="muted">Na jednom mestu.</span></h1>
+            <h1 className="h1" aria-label="Sve za vašu kancelariju, štampu i firmu. Na jednom mestu.">Sve za vašu <RollWord /><br /><span className="muted">Na jednom mestu.</span></h1>
             <p className="lead" style={{ fontSize: 21, maxWidth: '34ch' }}>Servis i prodaja kopir aparata, fotokopirnica i štampa, kancelarijski materijal i Creative Shop – sve iz jedne firme koju znate.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
               <Link to="/servis?prijava=1" className="btn btn-red">Prijavi kvar <Icon name="arrow" size={16} stroke={2.2} /></Link>
