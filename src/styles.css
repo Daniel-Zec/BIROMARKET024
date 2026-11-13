@@ -358,3 +358,11 @@ button { font-family: inherit; }
 .dz-m-steps .dz-mockflag { color: #fff; }
 .dz-mockflag.inline { position: static; font-size: 10.5px; padding: 3px 8px; }
 .dz .btn-red { color: #fff; }
+
+/* Language switch (SR / HU / EN) */
+.nav-row .lang-switch { margin-left: 20px; }
+.lang-switch { display: inline-flex; background: rgba(0,0,0,.05); border-radius: 980px; padding: 3px; flex: none; }
+.lang-switch button { border: 0; background: none; font: inherit; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 980px; color: var(--muted); cursor: pointer; }
+.lang-switch button.on { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.lang-switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.nav-row .navlinks { margin-left: auto; }

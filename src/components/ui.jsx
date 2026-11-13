@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Follow, Toast, rectIn } from 'micro-motion'
+import { useLang, LangSwitch } from '../i18n.jsx'
 
 export const img = (name) => `${import.meta.env.BASE_URL}img/${name}`
 
@@ -70,13 +71,14 @@ export function ScrollToTop() {
 export const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
 /* ---------- Biromarket nav + footer ---------- */
-const LINKS = [
-  ['Servis', '/servis'],
-  ['Fotokopirnica', '/fotokopirnica'],
-  ['Kancelarijski materijal', '/kancelarija'],
-  ['Creative Shop', '/creative-shop'],
-]
+const NAV = {
+  sr: { links: [['Servis', '/servis'], ['Fotokopirnica', '/fotokopirnica'], ['Kancelarijski materijal', '/kancelarija'], ['Creative Shop', '/creative-shop']], contact: 'Kontakt', home: 'Biromarket 024 – naslovna', menu: 'Glavni meni' },
+  hu: { links: [['Szerviz', '/servis'], ['Fénymásoló', '/fotokopirnica'], ['Irodaszer', '/kancelarija'], ['Creative Shop', '/creative-shop']], contact: 'Kapcsolat', home: 'Biromarket 024 – főoldal', menu: 'Főmenü' },
+  en: { links: [['Service', '/servis'], ['Copy shop', '/fotokopirnica'], ['Office supplies', '/kancelarija'], ['Creative Shop', '/creative-shop']], contact: 'Contact', home: 'Biromarket 024 – home', menu: 'Main menu' },
+}
 export function Nav() {
+  const { tr } = useLang()
+  const d = tr(NAV)
   const navRef = useRef(null)
   const [hl, setHl] = useState(null)
   const [scrolled, setScrolled] = useState(false)
@@ -93,12 +95,13 @@ export function Nav() {
   return (
     <header className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="wrap nav-row">
-        <Link to="/" aria-label="Biromarket 024 – naslovna"><img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="Biromarket 024" style={{ height: 30, width: 'auto', display: 'block' }} /></Link>
-        <nav className="navlinks" aria-label="Glavni meni" ref={navRef} onMouseOver={over} onFocus={over} onMouseLeave={() => setHl(null)} onBlur={() => setHl(null)}>
+        <Link to="/" aria-label={d.home}><img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="Biromarket 024" style={{ height: 30, width: 'auto', display: 'block' }} /></Link>
+        <nav className="navlinks" aria-label={d.menu} ref={navRef} onMouseOver={over} onFocus={over} onMouseLeave={() => setHl(null)} onBlur={() => setHl(null)}>
           <Follow to={hl} className="nav-hl" aria-hidden="true" />
-          {LINKS.map(([t, to]) => <NavLink key={to} to={to}>{t}</NavLink>)}
-          <Link to="/#kontakt" onClick={() => setTimeout(() => scrollTo('kontakt'), 50)}>Kontakt</Link>
+          {d.links.map(([t, to]) => <NavLink key={to} to={to}>{t}</NavLink>)}
+          <Link to="/#kontakt" onClick={() => setTimeout(() => scrollTo('kontakt'), 50)}>{d.contact}</Link>
         </nav>
+        <LangSwitch />
       </div>
     </header>
   )
@@ -128,19 +131,27 @@ export function Reveal() {
 }
 
 export function BackLink() {
-  return <Link to="/" className="back"><Icon name="back" size={16} stroke={2} />Naslovna</Link>
+  const { tr } = useLang()
+  return <Link to="/" className="back"><Icon name="back" size={16} stroke={2} />{tr({ sr: 'Naslovna', hu: 'Főoldal', en: 'Home' })}</Link>
+}
+const FOOT = {
+  sr: { services: 'Usluge', s1: 'Servis i prodaja kopir aparata', s2: 'Fotokopirnica i štampa', shops: 'Prodavnice', p1: 'Kancelarijski materijal', eco: 'Ekologija', ecoText: 'Dozvola za sakupljanje praznih kertridža i tonera od 2012.', copy: 'Prototip novog sajta', city: 'Subotica' },
+  hu: { services: 'Szolgáltatások', s1: 'Fénymásolók szervize és értékesítése', s2: 'Fénymásoló és nyomda', shops: 'Webáruházak', p1: 'Irodaszer', eco: 'Környezetvédelem', ecoText: '2012 óta engedéllyel gyűjtjük az üres tintapatronokat és tonereket.', copy: 'Az új weboldal prototípusa', city: 'Szabadka' },
+  en: { services: 'Services', s1: 'Copier service and sales', s2: 'Copy and print shop', shops: 'Shops', p1: 'Office supplies', eco: 'Environment', ecoText: 'Licensed to collect empty cartridges and toners since 2012.', copy: 'Prototype of the new website', city: 'Subotica' },
 }
 export function Footer() {
+  const { tr } = useLang()
+  const d = tr(FOOT)
   return (
     <footer style={{ background: '#fff', borderTop: '1px solid rgba(0,0,0,.06)', padding: '48px 0 40px', fontSize: 13, color: 'var(--muted)' }}>
       <div className="wrap stack" style={{ gap: 32 }}>
         <div className="foot">
-          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Biromarket 024 d.o.o.</b><span>Matije Gupca 56, 24000 Subotica</span><a href="mailto:info@biromarket024.rs" style={{ textDecoration: 'none' }}>info@biromarket024.rs</a></div>
-          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Usluge</b><Link to="/servis" style={{ textDecoration: 'none' }}>Servis i prodaja kopir aparata</Link><Link to="/fotokopirnica" style={{ textDecoration: 'none' }}>Fotokopirnica i štampa</Link></div>
-          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Prodavnice</b><Link to="/kancelarija" style={{ textDecoration: 'none' }}>Kancelarijski materijal</Link><Link to="/creative-shop" style={{ textDecoration: 'none' }}>Creative Shop</Link></div>
-          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Ekologija</b><span>Dozvola za sakupljanje praznih kertridža i tonera od 2012.</span></div>
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Biromarket 024 d.o.o.</b><span>Matije Gupca 56, 24000 {d.city}</span><a href="mailto:info@biromarket024.rs" style={{ textDecoration: 'none' }}>info@biromarket024.rs</a></div>
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>{d.services}</b><Link to="/servis" style={{ textDecoration: 'none' }}>{d.s1}</Link><Link to="/fotokopirnica" style={{ textDecoration: 'none' }}>{d.s2}</Link></div>
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>{d.shops}</b><Link to="/kancelarija" style={{ textDecoration: 'none' }}>{d.p1}</Link><Link to="/creative-shop" style={{ textDecoration: 'none' }}>Creative Shop</Link></div>
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>{d.eco}</b><span>{d.ecoText}</span></div>
         </div>
-        <div style={{ borderTop: '1px solid rgba(0,0,0,.06)', paddingTop: 20 }}>© 2026 Biromarket 024 d.o.o. · Prototip novog sajta</div>
+        <div style={{ borderTop: '1px solid rgba(0,0,0,.06)', paddingTop: 20 }}>© 2026 Biromarket 024 d.o.o. · {d.copy}</div>
       </div>
     </footer>
   )
