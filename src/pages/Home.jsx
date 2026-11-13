@@ -90,7 +90,7 @@ export default function Home() {
           </div>
           <div style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '4 / 3.4' }}>
-              <img src={img('bm-kombiji.webp')} alt="Službena vozila Biromarketa 024 parkirana ispred firme u Subotici" style={{ objectPosition: '60% 60%' }} />
+              <img src={img('bm-kombiji-novo.webp')} alt="Službena vozila Biromarketa 024 parkirana ispred firme u Subotici" style={{ objectPosition: '62% 70%' }} />
             </div>
             <div className="glass float-card left" style={{ left: -28, bottom: 36, display: 'flex', alignItems: 'center', gap: 14, maxWidth: 300 }}>
               <span style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name="phone" size={22} color="#fff" stroke={2} /></span>
