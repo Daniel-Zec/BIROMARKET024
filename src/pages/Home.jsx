@@ -95,8 +95,8 @@ export default function Home() {
             <div className="glass float-card left" style={{ left: -28, bottom: 36, display: 'flex', alignItems: 'center', gap: 14, maxWidth: 300 }}>
               <span style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name="phone" size={22} color="#fff" stroke={2} /></span>
               <span className="stack" style={{ gap: 2 }}>
-                <span style={{ fontSize: 13, color: 'var(--muted)' }}>Servis, pon–pet 07–16h</span>
-                <a href="tel:+38124601193" style={{ fontSize: 19, fontWeight: 700, textDecoration: 'none' }}>024/601-193</a>
+                <span style={{ fontSize: 13, color: 'var(--muted)' }}>Pozovite nas</span>
+                <a href="tel:+38124601190" style={{ fontSize: 19, fontWeight: 700, textDecoration: 'none' }}>024/601-190</a>
               </span>
             </div>
             <div className="glass float-card right" style={{ right: -20, top: 32, borderRadius: 20, padding: '14px 16px' }}>
