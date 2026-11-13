@@ -37,10 +37,14 @@ export default function CreativeShop() {
             <CartButton icon="bag" />
           </span>
         </div>
-        <div className="wrap" style={{ display: 'flex', gap: 28, overflowX: 'auto' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 28, overflowX: 'auto' }}>
           {CATS.map((n, i) => (
             <button key={n} onClick={() => scrollTo('ponuda')} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 2px', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
           ))}
+          <Link to="/" className="cs-to-bm" aria-label="Idi na Biromarket 024">
+            <img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="" style={{ height: 19, width: 'auto' }} />
+            <span>↗</span>
+          </Link>
         </div>
       </header>
 
@@ -146,7 +150,7 @@ export default function CreativeShop() {
           </div>
           <div className="cs-foot-bottom">
             <img src={`${import.meta.env.BASE_URL}logo/creativeshop-logo.svg`} alt="creativeshop.rs" style={{ height: 34, width: 'auto' }} />
-            <span>© 2026 Creative Shop · deo Biromarket 024 d.o.o. · Prototip</span>
+            <span>© 2026 Creative Shop · deo <Link to="/" style={{ color: 'inherit' }}>Biromarket 024 d.o.o.</Link> · Prototip</span>
           </div>
         </div>
         <div style={{ display: 'flex', height: 6 }}>{RB.map((c) => <span key={c} style={{ flex: 1, background: c }} />)}</div>
