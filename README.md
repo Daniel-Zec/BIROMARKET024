@@ -1,5 +1,18 @@
 # Biromarket 024 – prototip novog sajta
 
+**Pogledaj sajt:** https://daniel-zec.github.io/BIROMARKET024/
+
+## React verzija (koren repozitorijuma)
+- Vite + React 18 + [micro-motion](vendor/micro-motion-1.0.0.tgz) (Button, Toast, Count, Fly, Collapse, Segmented, Meter, States, Swap…)
+- Stranice: `src/pages/` – `Home`, `Servis`, `Fotokopirnica`, `Kancelarija`, `CreativeShop`
+- Zajedničke komponente: `src/components/` – meni, logo, toast, korpa sa „fly to cart“
+- Boje po brendu: `src/styles.css` (`[data-brand='creative']`)
+- Pokretanje: `npm install` pa `npm run dev`
+- Svaki push na `main` automatski objavljuje sajt (GitHub Actions → Pages)
+- Fotografije: `public/img/` – sa biromarket024.rs i Pexels (izvori u `public/img/IZVORI-pexels.txt`)
+
+## Prvi prototip (Claude Design platno)
+
 Prototip nove naslovne strane i početnih strana četiri sekcije za [biromarket024.rs](https://www.biromarket024.rs/) (Subotica, od 1995).
 
 | Fajl | Stranica |
