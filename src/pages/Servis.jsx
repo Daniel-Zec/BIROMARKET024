@@ -68,7 +68,7 @@ export default function Servis() {
           </div>
           <div style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '1 / 1', maxHeight: 560 }}>
-              <img src={img('bm-servis.jpg')} alt="Otvoren laserski štampač sa zaglavljenim papirom" />
+              <img src={img('bm-servis.webp')} alt="Otvoren laserski štampač sa zaglavljenim papirom" />
             </div>
             <div className="glass float-card left stack" style={{ left: -24, bottom: 28, gap: 10, minWidth: 260 }}>
               <span style={{ fontSize: 13, color: 'var(--muted)' }}>Status vaše prijave</span>

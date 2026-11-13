@@ -6,21 +6,21 @@ import { ProductCard, useCart } from '../components/Shop.jsx'
 const RB = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 const CATS = ['Dizajner', 'Muški', 'Ženski', 'Extra veličina', 'Dečiji', 'Unikatni pokloni', 'Rasprodaja']
 const PRODUCTS = [
-  { name: 'Majica po tvom dizajnu', cat: 'Dizajner', price: '690 RSD', img: 'creative-ai/cs-p0.jpg', alt: 'Bela majica sa šarenom mačkom u naočarima', tag: 'Dizajniraj sam' },
-  { name: 'Pamučna ženska majica', cat: 'Ženski', price: '553 RSD', img: 'creative-ai/cs-p1.jpg', alt: 'Svetlosiva ženska pamučna majica' },
-  { name: 'Esprit Single muška majica', cat: 'Muški', price: '990 RSD', img: 'creative-ai/cs-p2.jpg', alt: 'Teget muška majica dugih rukava' },
-  { name: 'Plišani Medo sa majicom za štampu', cat: 'Unikatni pokloni', price: '1.490 RSD', img: 'creative-ai/cs-p3.jpg', alt: 'Plišani meda u beloj majici sa srcem' },
-  { name: 'Vodeni ram sa vašom slikom', cat: 'Unikatni pokloni', price: '790 RSD', img: 'creative-ai/cs-p4.jpg', alt: 'Akrilni vodeni ram sa porodičnom fotografijom i šljokicama' },
-  { name: 'Boca sa navlakom', cat: 'Unikatni pokloni', price: '290 RSD', img: 'creative-ai/cs-p5.jpg', alt: 'Bela boca za vodu sa tirkiznom navlakom' },
-  { name: 'Ukrasna vreća za poklone', cat: 'Rasprodaja', price: '290 RSD', img: 'creative-ai/cs-p6.jpg', alt: 'Lanena vrećica za poklone sa šarenim tačkicama' },
-  { name: 'Šolja sa tvojom slikom', cat: 'Unikatni pokloni', price: '[cena] RSD', img: 'creative-ai/cs-p7.jpg', alt: 'Bela šolja sa kolažom fotografija para' },
+  { name: 'Majica po tvom dizajnu', cat: 'Dizajner', price: '690 RSD', img: 'creative-ai/cs-p0.webp', alt: 'Bela majica sa šarenom mačkom u naočarima', tag: 'Dizajniraj sam' },
+  { name: 'Pamučna ženska majica', cat: 'Ženski', price: '553 RSD', img: 'creative-ai/cs-p1.webp', alt: 'Svetlosiva ženska pamučna majica' },
+  { name: 'Esprit Single muška majica', cat: 'Muški', price: '990 RSD', img: 'creative-ai/cs-p2.webp', alt: 'Teget muška majica dugih rukava' },
+  { name: 'Plišani Medo sa majicom za štampu', cat: 'Unikatni pokloni', price: '1.490 RSD', img: 'creative-ai/cs-p3.webp', alt: 'Plišani meda u beloj majici sa srcem' },
+  { name: 'Vodeni ram sa vašom slikom', cat: 'Unikatni pokloni', price: '790 RSD', img: 'creative-ai/cs-p4.webp', alt: 'Akrilni vodeni ram sa porodičnom fotografijom i šljokicama' },
+  { name: 'Boca sa navlakom', cat: 'Unikatni pokloni', price: '290 RSD', img: 'creative-ai/cs-p5.webp', alt: 'Bela boca za vodu sa tirkiznom navlakom' },
+  { name: 'Ukrasna vreća za poklone', cat: 'Rasprodaja', price: '290 RSD', img: 'creative-ai/cs-p6.webp', alt: 'Lanena vrećica za poklone sa šarenim tačkicama' },
+  { name: 'Šolja sa tvojom slikom', cat: 'Unikatni pokloni', price: '[cena] RSD', img: 'creative-ai/cs-p7.webp', alt: 'Bela šolja sa kolažom fotografija para' },
 ].map((p) => ({ ...p, img: img(p.img) }))
 const STEPS = [
-  ['Izaberi proizvod', 'Majica, duks, šolja, puzla, kačket…', RB[0], 'creative-ai/cs-step1.jpg', 'Ruka bira između majice, šolje i kačketa'],
-  ['Dodaj sliku ili tekst', 'U online dizajneru – vidiš kako izgleda pre poručivanja.', RB[2], 'creative-ai/cs-step2.jpg', 'Laptop sa dizajnerom majice na ekranu'],
-  ['Mi štampamo', 'Gotov proizvod šaljemo na adresu ili ga preuzimaš u Subotici.', RB[4], 'creative-ai/cs-step3.jpg', 'Termo presa štampa šareni dizajn na majicu'],
+  ['Izaberi proizvod', 'Majica, duks, šolja, puzla, kačket…', RB[0], 'creative-ai/cs-step1.webp', 'Ruka bira između majice, šolje i kačketa'],
+  ['Dodaj sliku ili tekst', 'U online dizajneru – vidiš kako izgleda pre poručivanja.', RB[2], 'creative-ai/cs-step2.webp', 'Laptop sa dizajnerom majice na ekranu'],
+  ['Mi štampamo', 'Gotov proizvod šaljemo na adresu ili ga preuzimaš u Subotici.', RB[4], 'creative-ai/cs-step3.webp', 'Termo presa štampa šareni dizajn na majicu'],
 ]
-const POSTS = [['Poklon koji razumete samo vas dvoje', RB[0], 'creative-ai/cs-blog1.jpg', 'Dve šolje sa srcima i poklon'], ['Vodič za cozy dejtove kod kuće', RB[5], 'creative-ai/cs-blog2.jpg', 'Puzla sa fotografijom, ćebe i šolje'], ['Strašne priče za plašljive kupce', RB[6], 'creative-ai/cs-blog3.jpg', 'Crna majica sa duhom, čarapa i bundeva']]
+const POSTS = [['Poklon koji razumete samo vas dvoje', RB[0], 'creative-ai/cs-blog1.webp', 'Dve šolje sa srcima i poklon'], ['Vodič za cozy dejtove kod kuće', RB[5], 'creative-ai/cs-blog2.webp', 'Puzla sa fotografijom, ćebe i šolje'], ['Strašne priče za plašljive kupce', RB[6], 'creative-ai/cs-blog3.webp', 'Crna majica sa duhom, čarapa i bundeva']]
 
 export default function CreativeShop() {
   const pageRef = useRef(null)
@@ -57,7 +57,7 @@ export default function CreativeShop() {
           </div>
           <div style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '1 / 1', maxHeight: 560, boxShadow: '0 30px 60px -20px rgba(130,57,103,.35)' }}>
-              <img src={img('creative-ai/cs-hero.jpg')} alt="Majica, duks, šolja, kačket, puzla i meda sa šarenim printovima na stolu" />
+              <img src={img('creative-ai/cs-hero.webp')} alt="Majica, duks, šolja, kačket, puzla i meda sa šarenim printovima na stolu" />
             </div>
             <div className="glass float-card left" style={{ left: -24, bottom: 28, display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px' }}>
               <span style={{ display: 'flex', paddingLeft: 6 }}>{RB.slice(0, 5).map((c) => <span key={c} style={{ width: 22, height: 22, borderRadius: '50%', background: c, marginLeft: -6, boxShadow: '0 0 0 2px #fff' }} />)}</span>

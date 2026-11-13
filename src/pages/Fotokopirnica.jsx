@@ -16,10 +16,10 @@ const TIPS = [
 ]
 const TABS = ['Vizit karte', 'Izlozi', 'Promo', 'Kalendari']
 const GALLERY = [
-  [['kopirnica-vizit-karte-1.jpg', 'Vizit karte – mat papir'], ['kopirnica-vizit-karte-2.jpg', 'Vizit karte – sjajni lak'], ['kopirnica-vizit-karte-3.jpg', 'Vizit karte – razne vrste papira']],
-  [['kopirnica-izlog-1.jpg', 'Natpis na staklu izloga'], ['kopirnica-izlog-2.jpg', 'Folija za izlog radnje'], ['kopirnica-izlog-3.jpg', 'Natpis na prozoru restorana']],
-  [['kopirnica-upaljac.jpg', 'Upaljači sa logom'], ['olovke.jpg', 'Hemijske olovke'], ['kopirnica-nalepnice.jpg', 'Nalepnice']],
-  [['kopirnica-kalendar-1.jpg', 'Stoni kalendar – januar'], ['kopirnica-kalendar-2.jpg', 'Stoni kalendar – april'], ['kopirnica-kalendar-3.jpg', 'Stoni kalendar – jun']],
+  [['kopirnica-vizit-karte-1.webp', 'Vizit karte – mat papir'], ['kopirnica-vizit-karte-2.webp', 'Vizit karte – sjajni lak'], ['kopirnica-vizit-karte-3.webp', 'Vizit karte – razne vrste papira']],
+  [['kopirnica-izlog-1.webp', 'Natpis na staklu izloga'], ['kopirnica-izlog-2.webp', 'Folija za izlog radnje'], ['kopirnica-izlog-3.webp', 'Natpis na prozoru restorana']],
+  [['kopirnica-upaljac.webp', 'Upaljači sa logom'], ['olovke.webp', 'Hemijske olovke'], ['kopirnica-nalepnice.webp', 'Nalepnice']],
+  [['kopirnica-kalendar-1.webp', 'Stoni kalendar – januar'], ['kopirnica-kalendar-2.webp', 'Stoni kalendar – april'], ['kopirnica-kalendar-3.webp', 'Stoni kalendar – jun']],
 ]
 
 export default function Fotokopirnica() {
@@ -60,7 +60,7 @@ export default function Fotokopirnica() {
           </div>
           <div style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '1 / 1', maxHeight: 560 }}>
-              <img src={img('kopirnica-ploter.jpg')} alt="Ploter za sečenje folije u štampariji" />
+              <img src={img('kopirnica-ploter.webp')} alt="Ploter za sečenje folije u štampariji" />
             </div>
             <div className="glass float-card left stack" style={{ left: -24, bottom: 28, gap: 4 }}>
               <span style={{ fontSize: 13, color: 'var(--muted)' }}>Novo u ponudi</span>

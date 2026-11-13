@@ -4,24 +4,24 @@ import { Footer, Icon, img, scrollTo } from '../components/ui.jsx'
 import { ProductCard, useCart } from '../components/Shop.jsx'
 
 const CATS = [
-  ['Papir', '#eef3fb', 'kancelarija-papir.jpg'],
-  ['Registratori', '#fdf0ec', 'kancelarija-registratori.jpg'],
-  ['Pisanje', '#eef7f1', 'olovke.jpg'],
-  ['Heftalice', '#f5effa', 'kancelarija-heftalica.jpg'],
-  ['Koverte', '#fff6e5', 'kancelarija-koverte.jpg'],
-  ['Toneri', '#eef1f5', 'kancelarija-toner.jpg'],
-  ['Fascikle', '#fbeef3', 'kancelarija-fascikle.jpg'],
-  ['Blokčići', '#edf6f7', 'kancelarija-blokcici.jpg'],
+  ['Papir', '#eef3fb', 'kancelarija-papir.webp'],
+  ['Registratori', '#fdf0ec', 'kancelarija-registratori.webp'],
+  ['Pisanje', '#eef7f1', 'olovke.webp'],
+  ['Heftalice', '#f5effa', 'kancelarija-heftalica.webp'],
+  ['Koverte', '#fff6e5', 'kancelarija-koverte.webp'],
+  ['Toneri', '#eef1f5', 'kancelarija-toner.webp'],
+  ['Fascikle', '#fbeef3', 'kancelarija-fascikle.webp'],
+  ['Blokčići', '#edf6f7', 'kancelarija-blokcici.webp'],
 ]
 const PRODUCTS = [
-  { name: 'Fotokopir papir A4, 80 g, 500 listova', cat: 'Papir', img: 'kancelarija-papir.jpg', alt: 'Ruka stavlja papir u štampač' },
-  { name: 'Registrator A4, široka leđa 75 mm', cat: 'Registratori', img: 'kancelarija-registratori.jpg', alt: 'Plavi i narandžasti registratori na polici' },
-  { name: 'Hemijska olovka, plava, 10 kom', cat: 'Pisanje', img: 'olovke.jpg', alt: 'Hemijske olovke na stolu' },
-  { name: 'Heftalica 24/6, do 25 listova', cat: 'Heftalice', img: 'kancelarija-heftalica.jpg', alt: 'Bela heftalica na svesci' },
-  { name: 'Koverte B5, samolepljive, 50 kom', cat: 'Koverte', img: 'kancelarija-koverte.jpg', alt: 'Bež koverte' },
-  { name: 'Clover toner, visok kapacitet', cat: 'Toneri', img: 'kancelarija-toner.jpg', alt: 'Crna toner kaseta' },
-  { name: 'Fascikla sa mehanizmom, 10 kom', cat: 'Fascikle', img: 'kancelarija-fascikle.jpg', alt: 'Žute i roze fascikle sa olovkom' },
-  { name: 'Samolepljivi blokčići 76×76', cat: 'Papir', img: 'kancelarija-blokcici.jpg', alt: 'Šareni samolepljivi blokčići' },
+  { name: 'Fotokopir papir A4, 80 g, 500 listova', cat: 'Papir', img: 'kancelarija-papir.webp', alt: 'Ruka stavlja papir u štampač' },
+  { name: 'Registrator A4, široka leđa 75 mm', cat: 'Registratori', img: 'kancelarija-registratori.webp', alt: 'Plavi i narandžasti registratori na polici' },
+  { name: 'Hemijska olovka, plava, 10 kom', cat: 'Pisanje', img: 'olovke.webp', alt: 'Hemijske olovke na stolu' },
+  { name: 'Heftalica 24/6, do 25 listova', cat: 'Heftalice', img: 'kancelarija-heftalica.webp', alt: 'Bela heftalica na svesci' },
+  { name: 'Koverte B5, samolepljive, 50 kom', cat: 'Koverte', img: 'kancelarija-koverte.webp', alt: 'Bež koverte' },
+  { name: 'Clover toner, visok kapacitet', cat: 'Toneri', img: 'kancelarija-toner.webp', alt: 'Crna toner kaseta' },
+  { name: 'Fascikla sa mehanizmom, 10 kom', cat: 'Fascikle', img: 'kancelarija-fascikle.webp', alt: 'Žute i roze fascikle sa olovkom' },
+  { name: 'Samolepljivi blokčići 76×76', cat: 'Papir', img: 'kancelarija-blokcici.webp', alt: 'Šareni samolepljivi blokčići' },
 ].map((p) => ({ ...p, img: img(p.img), price: '[cena] RSD' }))
 const PERKS = [
   ['invoice', 'Plaćanje na račun firme', 'Predračun i plaćanje virmanom.'],
@@ -67,7 +67,7 @@ export default function Kancelarija() {
               </div>
             </div>
             <div style={{ position: 'relative', minHeight: 360 }}>
-              <img src={img('kancelarija-pribor-sto.jpg')} alt="Kancelarijski pribor na drvenom stolu: bušač, blokčići, heftalica i markeri" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={img('kancelarija-pribor-sto.webp')} alt="Kancelarijski pribor na drvenom stolu: bušač, blokčići, heftalica i markeri" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="glass" style={{ position: 'absolute', right: 20, bottom: 20, borderRadius: 18, padding: '14px 16px' }}>
                 <span style={{ fontSize: 13, color: 'var(--muted)', display: 'block' }}>Za firme</span>
                 <span style={{ fontSize: 16, fontWeight: 700 }}>Plaćanje virmanom</span>

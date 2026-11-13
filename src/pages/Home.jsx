@@ -6,19 +6,19 @@ import { Nav, Icon, img, scrollTo } from '../components/ui.jsx'
 const RAINBOW = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 
 const TILES = [
-  { to: '/servis', kicker: 'Servis', dot: 'var(--accent)', img: 'bm-servis.jpg', alt: 'Otvoren laserski štampač sa zaglavljenim papirom',
+  { to: '/servis', kicker: 'Servis', dot: 'var(--accent)', img: 'bm-servis.webp', alt: 'Otvoren laserski štampač sa zaglavljenim papirom',
     title: 'Servis i prodaja kopir aparata', cta: 'Otvori servis',
     text: 'Popravka i održavanje kopir aparata, štampača i multifunkcijskih uređaja. Izlazimo na teren, a dok popravljamo dobijate rezervni aparat.',
     chips: ['Prijava kvara', 'Toneri i delovi', 'Novi aparati', 'Iznajmljivanje'] },
-  { to: '/fotokopirnica', kicker: 'Fotokopirnica', dot: '#1d1d1f', img: 'kopirnica-ploter.jpg', alt: 'Ploter za sečenje folije u štampariji',
+  { to: '/fotokopirnica', kicker: 'Fotokopirnica', dot: '#1d1d1f', img: 'kopirnica-ploter.webp', alt: 'Ploter za sečenje folije u štampariji',
     title: 'Fotokopirnica i štampa', cta: 'Otvori fotokopirnicu',
     text: 'Kopiranje i skeniranje do velikih formata, vizit karte, kalendari i diplome, solventna štampa nalepnica i izloga, štampa na upaljačima i hemijskim.',
     chips: ['Vizit karte', 'Solventna štampa', 'Nalepnice za izloge', 'Upaljači'] },
-  { to: '/kancelarija', kicker: 'Online prodavnica', dot: '#0a7d4f', img: 'kancelarija-pribor-sto.jpg', alt: 'Kancelarijski pribor na drvenom stolu',
+  { to: '/kancelarija', kicker: 'Online prodavnica', dot: '#0a7d4f', img: 'kancelarija-pribor-sto.webp', alt: 'Kancelarijski pribor na drvenom stolu',
     title: 'Kancelarijski materijal', cta: 'Otvori prodavnicu',
     text: 'Papir, registratori, fascikle, pribor za pisanje, toneri i kertridži – naručite online, platite na račun firme, preuzmite ili sačekajte dostavu.',
     chips: ['Papir', 'Registratori', 'Toneri', 'Za firme'] },
-  { to: '/creative-shop', kicker: 'creativeshop.rs', dot: '#EE7D15', img: 'bm-majice.jpg', alt: 'Ručno oslikana majica na roze podlozi', rainbow: true,
+  { to: '/creative-shop', kicker: 'creativeshop.rs', dot: '#EE7D15', img: 'bm-majice.webp', alt: 'Ručno oslikana majica na roze podlozi', rainbow: true,
     title: 'Creative Shop', cta: 'Otvori Creative Shop',
     text: 'Majice, šolje, puzle, kačketi i pokloni sa vašom slikom ili tekstom. Dizajnirajte sami u online dizajneru – mi štampamo.',
     chips: ['Majice', 'Šolje', 'Pokloni', 'Online dizajner'] },
@@ -89,7 +89,7 @@ export default function Home() {
           </div>
           <div style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '4 / 3.4' }}>
-              <img src={img('bm-kombiji.jpg')} alt="Službena vozila Biromarketa 024 parkirana ispred firme u Subotici" style={{ objectPosition: '60% 60%' }} />
+              <img src={img('bm-kombiji.webp')} alt="Službena vozila Biromarketa 024 parkirana ispred firme u Subotici" style={{ objectPosition: '60% 60%' }} />
             </div>
             <div className="glass float-card left" style={{ left: -28, bottom: 36, display: 'flex', alignItems: 'center', gap: 14, maxWidth: 300 }}>
               <span style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name="phone" size={22} color="#fff" stroke={2} /></span>
