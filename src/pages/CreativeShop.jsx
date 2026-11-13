@@ -74,13 +74,13 @@ export default function CreativeShop() {
           <span style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <span className="cart"><Icon name="user" size={20} />{d.login}</span>
             <CartButton icon="bag" />
-            <LangSwitch />
           </span>
         </div>
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 28, overflowX: 'auto' }}>
           {CATS.map((n, i) => (
             <button key={n} onClick={() => (i === 0 ? navigate('/creative-shop/dizajner') : scrollTo('ponuda'))} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 2px', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
           ))}
+          <LangSwitch className="cs-lang" />
           <Link to="/" className="cs-to-bm" aria-label={d.toBm}>
             <img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="" style={{ height: 19, width: 'auto' }} />
             <span>↗</span>
