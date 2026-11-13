@@ -6,21 +6,21 @@ import { ProductCard, useCart } from '../components/Shop.jsx'
 const RB = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 const CATS = ['Dizajner', 'Muški', 'Ženski', 'Extra veličina', 'Dečiji', 'Unikatni pokloni', 'Rasprodaja']
 const PRODUCTS = [
-  { name: 'Majica po tvom dizajnu', cat: 'Dizajner', price: '690 RSD', img: 'creative-majica-print.jpg', alt: 'Crna majica sa šarenim printom', tag: 'Dizajniraj sam' },
-  { name: 'Pamučna ženska majica', cat: 'Ženski', price: '553 RSD', img: 'creative-zenska-majica.jpg', alt: 'Bela ženska majica' },
-  { name: 'Esprit Single muška majica', cat: 'Muški', price: '990 RSD', img: 'creative-majice-slozene.jpg', alt: 'Složene majice u tri boje' },
-  { name: 'Plišani Medo sa majicom za štampu', cat: 'Unikatni pokloni', price: '1.490 RSD', img: 'creative-meda.jpg', alt: 'Plišani meda na jastuku' },
-  { name: 'Vodeni ram sa vašom slikom', cat: 'Unikatni pokloni', price: '790 RSD', img: 'creative-ramovi.jpg', alt: 'Ramovi sa fotografijama' },
-  { name: 'Boca sa navlakom', cat: 'Unikatni pokloni', price: '290 RSD', img: 'creative-boce.jpg', alt: 'Bela i crna boca za vodu' },
-  { name: 'Ukrasna vreća za poklone', cat: 'Rasprodaja', price: '290 RSD', img: 'creative-poklon-kese.jpg', alt: 'Šarene kese za poklone sa trakama' },
-  { name: 'Šolja sa tvojom slikom', cat: 'Unikatni pokloni', price: '[cena] RSD', img: 'creative-solje.jpg', alt: 'Dve bele šolje sa natpisom' },
+  { name: 'Majica po tvom dizajnu', cat: 'Dizajner', price: '690 RSD', img: 'creative-ai/cs-p0.jpg', alt: 'Bela majica sa šarenom mačkom u naočarima', tag: 'Dizajniraj sam' },
+  { name: 'Pamučna ženska majica', cat: 'Ženski', price: '553 RSD', img: 'creative-ai/cs-p1.jpg', alt: 'Svetlosiva ženska pamučna majica' },
+  { name: 'Esprit Single muška majica', cat: 'Muški', price: '990 RSD', img: 'creative-ai/cs-p2.jpg', alt: 'Teget muška majica dugih rukava' },
+  { name: 'Plišani Medo sa majicom za štampu', cat: 'Unikatni pokloni', price: '1.490 RSD', img: 'creative-ai/cs-p3.jpg', alt: 'Plišani meda u beloj majici sa srcem' },
+  { name: 'Vodeni ram sa vašom slikom', cat: 'Unikatni pokloni', price: '790 RSD', img: 'creative-ai/cs-p4.jpg', alt: 'Akrilni vodeni ram sa porodičnom fotografijom i šljokicama' },
+  { name: 'Boca sa navlakom', cat: 'Unikatni pokloni', price: '290 RSD', img: 'creative-ai/cs-p5.jpg', alt: 'Bela boca za vodu sa tirkiznom navlakom' },
+  { name: 'Ukrasna vreća za poklone', cat: 'Rasprodaja', price: '290 RSD', img: 'creative-ai/cs-p6.jpg', alt: 'Lanena vrećica za poklone sa šarenim tačkicama' },
+  { name: 'Šolja sa tvojom slikom', cat: 'Unikatni pokloni', price: '[cena] RSD', img: 'creative-ai/cs-p7.jpg', alt: 'Bela šolja sa kolažom fotografija para' },
 ].map((p) => ({ ...p, img: img(p.img) }))
 const STEPS = [
-  ['Izaberi proizvod', 'Majica, duks, šolja, puzla, kačket…', RB[0]],
-  ['Dodaj sliku ili tekst', 'U online dizajneru – vidiš kako izgleda pre poručivanja.', RB[2]],
-  ['Mi štampamo', 'Gotov proizvod šaljemo na adresu ili ga preuzimaš u Subotici.', RB[4]],
+  ['Izaberi proizvod', 'Majica, duks, šolja, puzla, kačket…', RB[0], 'creative-ai/cs-step1.jpg', 'Ruka bira između majice, šolje i kačketa'],
+  ['Dodaj sliku ili tekst', 'U online dizajneru – vidiš kako izgleda pre poručivanja.', RB[2], 'creative-ai/cs-step2.jpg', 'Laptop sa dizajnerom majice na ekranu'],
+  ['Mi štampamo', 'Gotov proizvod šaljemo na adresu ili ga preuzimaš u Subotici.', RB[4], 'creative-ai/cs-step3.jpg', 'Termo presa štampa šareni dizajn na majicu'],
 ]
-const POSTS = [['Poklon koji razumete samo vas dvoje', RB[0]], ['Vodič za cozy dejtove kod kuće', RB[5]], ['Strašne priče za plašljive kupce', RB[6]]]
+const POSTS = [['Poklon koji razumete samo vas dvoje', RB[0], 'creative-ai/cs-blog1.jpg', 'Dve šolje sa srcima i poklon'], ['Vodič za cozy dejtove kod kuće', RB[5], 'creative-ai/cs-blog2.jpg', 'Puzla sa fotografijom, ćebe i šolje'], ['Strašne priče za plašljive kupce', RB[6], 'creative-ai/cs-blog3.jpg', 'Crna majica sa duhom, čarapa i bundeva']]
 
 export default function CreativeShop() {
   const pageRef = useRef(null)
@@ -57,7 +57,7 @@ export default function CreativeShop() {
           </div>
           <div style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '1 / 1', maxHeight: 560, boxShadow: '0 30px 60px -20px rgba(130,57,103,.35)' }}>
-              <img src={img('bm-majice.jpg')} alt="Ručno oslikana majica na roze podlozi" />
+              <img src={img('creative-ai/cs-hero.jpg')} alt="Majica, duks, šolja, kačket, puzla i meda sa šarenim printovima na stolu" />
             </div>
             <div className="glass float-card left" style={{ left: -24, bottom: 28, display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px' }}>
               <span style={{ display: 'flex', paddingLeft: 6 }}>{RB.slice(0, 5).map((c) => <span key={c} style={{ width: 22, height: 22, borderRadius: '50%', background: c, marginLeft: -6, boxShadow: '0 0 0 2px #fff' }} />)}</span>
@@ -71,11 +71,14 @@ export default function CreativeShop() {
         <div className="wrap stack" style={{ gap: 28 }}>
           <h2 className="h2">Kako radi dizajner</h2>
           <div className="g3">
-            {STEPS.map(([t, x, c], i) => (
-              <div key={t} className="card stack" style={{ padding: 26, gap: 12 }}>
+            {STEPS.map(([t, x, c, src, alt], i) => (
+              <div key={t} className="card stack" style={{ overflow: 'hidden' }}>
+                <img src={img(src)} alt={alt} loading="lazy" style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover' }} />
+                <span className="stack" style={{ padding: '20px 26px 26px', gap: 12 }}>
                 <span style={{ width: 44, height: 44, borderRadius: '50%', background: c, color: '#fff', fontSize: 18, fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{i + 1}</span>
                 <span style={{ fontSize: 21, fontWeight: 700 }}>{t}</span>
                 <span style={{ fontSize: 15, lineHeight: 1.5, color: 'var(--muted)' }}>{x}</span>
+              </span>
               </div>
             ))}
           </div>
@@ -99,9 +102,10 @@ export default function CreativeShop() {
             <span className="small" style={{ fontSize: 15 }}>Bodovi za kupce koji se vraćaju · Reklamacije i garancija</span>
           </div>
           <div className="g3">
-            {POSTS.map(([t, c]) => (
+            {POSTS.map(([t, c, src, alt]) => (
               <div key={t} className="card stack" style={{ overflow: 'hidden' }}>
-                <span style={{ height: 10, background: c }} />
+                <img src={img(src)} alt={alt} loading="lazy" style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover' }} />
+                <span style={{ height: 6, background: c }} />
                 <span className="stack" style={{ padding: 22, gap: 8 }}><span style={{ fontSize: 12, color: 'var(--muted)' }}>Novosti</span><span style={{ fontSize: 19, fontWeight: 700, lineHeight: 1.3 }}>{t}</span></span>
               </div>
             ))}
