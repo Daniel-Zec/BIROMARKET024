@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Segmented } from 'micro-motion'
 import { useToast } from '../components/ui.jsx'
+import { useLang } from '../i18n.jsx'
 
 /* Mockup of the new Creative Shop designer.
    Two separate layouts (desktop: mouse + keyboard, mobile: touch) share one state.
@@ -217,7 +218,7 @@ function Lang({ lang, setLang }) {
 export default function Dizajner() {
   const isMobile = useIsMobile()
   const toast = useToast()
-  const [lang, setLang] = useState('sr')
+  const { lang, setLang } = useLang()
   const t = T[lang]
   const [st, setSt] = useState({ side: 'front', color: 'bela', text: 'Subotica', font: 0, ink: '#3e3e3e', align: 'center', size: 40, layers: START, sel: 't1', tool: 'tekst', sheet: true })
   const set = (p) => setSt((s) => ({ ...s, ...p }))
