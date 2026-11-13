@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Biromarket 024 – naslovna strana</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f5f5f7}
+a{color:#1d1d1f}a:hover{color:#000}
+*{box-sizing:border-box}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 32px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a{text-decoration:none;color:#424245;font-size:14px;font-weight:400;transition:color 150ms ease}
+.navlinks a:hover{color:#1d1d1f;transition-duration:100ms}
+.btn{appearance:none;border:0;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;border-radius:980px;font-weight:500;text-decoration:none;transition:transform 180ms cubic-bezier(.2,.8,.2,1),box-shadow 150ms ease,background-color 150ms ease}
+.btn:active{transform:scale(.97);transition-duration:80ms}
+.btn:focus-visible,.tile:focus-visible{outline:3px solid rgba(0,113,227,.5);outline-offset:3px}
+.btn-red{color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 24px -8px rgba(255,0,0,.45)}
+.btn-red:hover{box-shadow:0 1px 2px rgba(0,0,0,.08),0 12px 28px -8px rgba(255,0,0,.55)}
+.btn-glass{color:#1d1d1f;background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.btn-glass:hover{background:rgba(255,255,255,.95)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center}
+.h1{font-size:clamp(44px,5.6vw,80px);line-height:1.02;letter-spacing:-.025em;font-weight:700;margin:0;color:#1d1d1f}
+.glass{background:rgba(255,255,255,.62);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 10px 30px -10px rgba(0,0,0,.18)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.tile{text-decoration:none;color:inherit;appearance:none;border:0;padding:0;margin:0;text-align:left;font-family:inherit;cursor:pointer;background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 30px -12px rgba(0,0,0,.12);transition:transform 220ms cubic-bezier(.22,1,.36,1),box-shadow 220ms ease}
+.tile:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.04),0 24px 48px -16px rgba(0,0,0,.22)}
+.tile:active{transform:translateY(-2px) scale(.985);transition-duration:80ms}
+.tile .img{transition:transform 500ms cubic-bezier(.22,1,.36,1)}
+.tile:hover .img{transform:scale(1.035)}
+.tile .go{transition:transform 220ms cubic-bezier(.22,1,.36,1)}
+.tile:hover .go{transform:translateX(4px)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.roll{display:inline-flex;height:1em;line-height:1;overflow:hidden;vertical-align:top}
+.roll .col{display:flex;flex-direction:column}
+.roll .col span{display:block;height:1em}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px}
+.dept{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.toast{position:fixed;left:50%;bottom:28px;z-index:50;transform:translate(-50%,10px);opacity:0;pointer-events:none;transition:opacity 350ms cubic-bezier(.22,1,.36,1),transform 600ms cubic-bezier(.22,1,.36,1)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+@media (max-width:900px){
+.hero-grid,.tiles,.contact-grid{grid-template-columns:minmax(0,1fr)}
+.stats,.foot{grid-template-columns:repeat(2,minmax(0,1fr))}
+.navlinks{display:none}
+.wrap{padding:0 20px}
+}
+@media (max-width:520px){.dept{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:0ms!important}}
+</style>
+</helmet>
+<div style="font-family: Roboto, system-ui, sans-serif; color: #1d1d1f; background: #f5f5f7; width: 100%; -webkit-font-smoothing: antialiased">
+
+<header class="nav">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 24px">
+<a href="#vrh" aria-label="Biromarket 024 – početna" style="display: flex; align-items: center">
+<svg role="img" aria-label="Biromarket 024" viewBox="0 0 9577.6 1054.74" style="height: 22px; width: auto">
+<g fill="{{accent}}">
+<path d="M-0 1030.85l0 -1013.29 240.52 0c117.42,0 205.49,25.26 263.960,76.01 58.71,50.29 88.07,114.22 88.07,192.05 0,88.29 -38.01,152.45 -114.01,192.5 116.96,38.69 175.44,122.2 175.44,250.77 0,85.33 -29.12,157.01 -87.37,215.26 -58.26,57.8 -158.38,86.7 -300.6,86.7l-266.01 0zm187.28 -174.76l89.43 0c126.74,0 190,-45.06 190,-135.17 0,-36.4 -14.79,-67.81 -44.6,-93.98 -29.81,-26.16 -74.64,-39.37 -134.03,-39.37l-100.8 0 0 268.52zm0 -443.27l79.42 0c92.38,0 138.57,-35.95 138.57,-107.85 0,-75.09 -46.87,-112.64 -140.63,-112.64l-77.35 0 0 220.48 -0.01 0.01z"></path>
+<path d="M737.95 273.56l182.04 0 0 757.29 -182.04 0 0 -757.29zm0 -251.45l182.04 0 0 166.12 -182.04 0 0 -166.12z"></path>
+<path d="M1127.98 273.56l167.94 0 0 76.68c36.4,-67.13 88.74,-100.57 156.78,-100.57l17.29 0 0 175.89c-55.52,3.64 -96.25,19.34 -121.97,47.33 -25.25,27.99 -38,68.27 -38,120.61l0 437.35 -182.04 0 0 -757.29z"></path>
+<path d="M1509.83 655.61c0,-111.96 39.14,-207.54 117.41,-286.72 78.05,-79.41 172.71,-119.23 283.3,-119.23 112.41,0 207.07,39.36 283.98,117.86 77.35,78.28 116.05,174.31 116.05,288.09 0,111.49 -38.24,205.93 -114.69,283.07 -76,77.37 -171.34,116.05 -286.03,116.05 -110.59,0 -205.02,-39.14 -283.3,-117.19 -77.82,-78.73 -116.73,-172.71 -116.73,-281.93l0.01 0zm182.03 -1.37c0,67.35 21.63,123.33 64.63,167.7 43.24,44.37 94.89,66.68 155.41,66.68 60.76,0 112.19,-22.76 154.06,-68.04 41.64,-45.28 62.57,-100.58 62.57,-166.34 0,-64.85 -21.16,-120.83 -63.25,-167.93 -42.33,-47.1 -93.3,-70.54 -153.38,-70.54 -60.07,0 -111.72,22.75 -155.41,68.04 -43,44.820 -64.63,101.48 -64.63,170.43z"></path>
+<path d="M2406.15 273.56l167.92 0 0 61.44c45.28,-56.9 112.64,-85.33 202.07,-85.33 92.38,0 164.98,39.14 217.99,117.41 54.61,-78.27 136.08,-117.41 244.62,-117.41 93.3,0 168.16,28.21 224.59,84.65 56.43,55.97 84.65,141.76 84.65,257.35l0 439.18 -182.03 0 0 -420.52c0,-129.7 -48.25,-194.55 -144.5,-194.55 -47.11,0 -84.42,16.6 -111.96,50.06 -27.53,33.22 -41.41,84.65 -41.41,153.82l0 411.19 -182.04 0 0 -411.19c0,-135.84 -50.97,-203.88 -152.69,-203.88 -96.71,0 -145.18,70.31 -145.18,211.16l0 403.91 -182.03 0 0 -757.29z"></path>
+<path d="M4470.93 273.56l0 757.29 -167.24 0 0 -93.53c-20.93,29.81 -57.8,56.89 -110.59,81.47 -52.57,23.89 -104.9,35.95 -156.78,35.95 -103.08,0 -190.01,-38 -260.78,-114 -70.31,-76.46 -105.36,-171.57 -105.36,-285.12 0,-116.05 35.5,-212.78 106.73,-289.9 71.45,-77.37 162.24,-116.05 272.15,-116.05 106.49,0 191.59,42.77 254.63,128.1l0 -104.21 167.24 0zm-395.92 142.22c-58.7,0 -110.59,22.29 -155.42,66.67 -44.83,44.37 -67.35,101.49 -67.35,171.8 0,63.48 21.61,118.55 64.62,165.2 43.23,46.19 95.8,69.18 158.15,69.18 64.85,0 118.33,-22.3 159.97,-66.68 41.87,-44.37 62.8,-100.35 62.8,-167.7 0,-64.85 -20.02,-120.83 -60.07,-167.93 -39.59,-47.1 -93.75,-70.54 -162.7,-70.54z"></path>
+<path d="M4629.78 273.56l167.94 0 0 76.68c36.41,-67.13 88.74,-100.57 156.78,-100.57l17.29 0 0 175.89c-55.52,3.64 -96.25,19.34 -121.96,47.33 -25.26,27.99 -38.010,68.27 -38.01,120.61l0 437.35 -182.04 0 0 -757.29z"></path>
+<path d="M5311.3 634.22l238.02 -360.67 210.03 0 -266.01 370 302.64 387.29 -230.05 0 -254.63 -357.94 0 357.94 -182.04 0 0 -1013.29 182.04 0 0 616.67z"></path>
+<path d="M5990.55 734.8c37.78,102.63 108.55,153.83 212.08,153.83 80.56,0 138.12,-33.45 172.71,-100.58l187.27 0c-20.48,66.67 -62.8,127.88 -127.42,183.4 -64.4,55.53 -140.63,83.29 -228.47,83.29 -119.23,0 -216.39,-39.37 -291.49,-117.87 -74.63,-79.19 -111.95,-172.94 -111.95,-281.25 0,-117.43 38,-214.13 114,-290.59 76.46,-76.91 171.35,-115.36 284.67,-115.36 106.27,0 197.06,38.91 272.61,116.5 75.54,77.83 113.31,169.75 113.31,276.02 0,35.49 -2.95,66.45 -8.64,92.61l-588.68 0zm-2.73 -146.09l412.78 0c-22.76,-115.37 -90.79,-172.94 -204.8,-172.94 -106.94,0 -176.35,57.57 -207.98,172.94z"></path>
+<path d="M6678.91 17.56l182.04 0 0 256 106.72 0 0 161.33 -106.72 0 0 595.96 -182.04 0 0 -595.96 -88.06 0 0 -161.33 88.06 0 0 -256z"></path>
+</g>
+<path fill="#86868b" d="M8008.6 340.55c0,-206.81 -133.73,-340.55 -340.54,-340.55 -209.57,0 -341.93,135.12 -341.93,350.2l0 346.06c0,97.89 19.3,166.83 64.8,228.87 63.42,84.11 161.31,129.6 285.4,129.6 117.19,0 208.19,-42.74 267.47,-125.46 45.5,-63.42 64.8,-130.98 64.8,-233.01l0 -355.71zm-499.1 9.65c0,-113.05 60.67,-181.99 159.94,-181.99 99.26,0 155.79,64.8 155.79,181.99l0 344.68c0,63.43 -9.65,103.41 -33.09,135.12 -24.81,35.85 -70.31,56.53 -121.33,56.53 -104.78,0 -161.31,-68.94 -161.31,-195.78l0 -340.55zm601.13 686.61l659.03 0 0 -172.34 -401.21 0 208.19 -188.89c74.45,-67.56 106.16,-102.02 136.5,-148.9 39.98,-57.91 60.66,-126.84 60.66,-195.78 0,-187.51 -143.39,-330.9 -332.27,-330.9 -118.58,0 -226.12,56.53 -284.02,150.29 -38.61,60.66 -53.77,121.32 -53.77,219.21l180.61 0c0,-121.32 63.42,-201.29 158.55,-201.29 84.11,0 147.53,68.94 147.53,159.93 0,66.18 -34.47,125.47 -117.19,204.05l-362.61 343.31 0 161.31zm736.24 -301.94l0 148.9 439.81 0 0 153.04 183.38 0 0 -153.04 107.54 0 0 -164.07 -107.54 0 0 -701.77 -154.42 0 -468.77 716.94zm439.81 -15.17l-253.68 0 253.68 -392.94 0 392.94z"></path>
+</svg>
+</a>
+<nav class="navlinks" aria-label="Glavni meni">
+<a href="Servis.dc.html">Servis</a>
+<a href="Fotokopirnica.dc.html">Fotokopirnica</a>
+<a href="Kancelarija.dc.html">Kancelarijski materijal</a>
+<a href="CreativeShop.dc.html">Creative Shop</a>
+<a href="#o-nama">O nama</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+<a href="Servis.dc.html#prijava" class="btn btn-red" style="background: {{accent}}; padding: 9px 18px; font-size: 14px">Prijavi kvar</a>
+</div>
+</header>
+
+<section id="vrh" style="padding: 72px 0 88px">
+<div class="wrap hero-grid">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<span class="glass" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; border-radius: 980px; padding: 8px 16px 8px 8px; font-size: 14px; color: #424245">
+<span style="display: inline-flex; align-items: center; justify-content: center; height: 28px; padding: 0 10px; border-radius: 980px; background: {{accent}}; color: #fff; font-weight: 700; font-size: 15px">
+<span class="roll" aria-hidden="true">
+<sc-for list="{{years.digits}}" as="dg" hint-placeholder-count="2">
+<span class="col" style="{{dg.style}}">
+<sc-for list="{{dg.nums}}" as="n" hint-placeholder-count="10"><span>{{n}}</span></sc-for>
+</span>
+</sc-for>
+</span>
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">31</span>
+</span>
+godina sa vama · Subotica, od 1995.
+</span>
+<h1 class="h1">Sve za vašu kancelariju.<br><span style="color: #86868b">Na jednom mestu.</span></h1>
+<p style="margin: 0; font-size: 21px; line-height: 1.45; color: #424245; max-width: 34ch; font-weight: 300">Servis i prodaja kopir aparata, fotokopirnica i štampa, kancelarijski materijal i Creative Shop – sve iz jedne firme koju znate.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="Servis.dc.html#prijava" class="btn btn-red" style="background: {{accent}}; padding: 15px 26px; font-size: 17px">Prijavi kvar
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a href="Servis.dc.html#prijava" class="btn btn-glass" style="padding: 15px 26px; font-size: 17px">Naruči toner</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; color: #6e6e73">
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"></path></svg>Izlazak na teren</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"></rect><rect x="3" y="10" width="18" height="8" rx="2"></rect><path d="M7 18v3h10v-3"></path></svg>Rezervni aparat dok popravljamo</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 10 17l-5-5"></path></svg>Sertifikovani serviseri</span>
+</div>
+</div>
+
+<div style="position: relative">
+<div style="position: relative; aspect-ratio: 4 / 3.4; border-radius: 32px; overflow: hidden; background: #e8e8ed; box-shadow: 0 30px 60px -20px rgba(0,0,0,.25)">
+<img src="/_blob/e7f94a862b065acc1a3071ad6e32ff3b" alt="Službena vozila Biromarketa 024 parkirana ispred firme u Subotici" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 60%">
+</div>
+<div class="glass" style="position: absolute; left: -28px; bottom: 36px; border-radius: 22px; padding: 16px 18px; display: flex; align-items: center; gap: 14px; max-width: 300px">
+<span style="flex: none; width: 44px; height: 44px; border-radius: 14px; background: {{accent}}; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #6e6e73">Servis, pon–pet 07–16h</span>
+<a href="tel:+38124601193" style="font-size: 19px; font-weight: 700; text-decoration: none">024/601-193</a>
+</span>
+</div>
+<div class="glass" style="position: absolute; right: -20px; top: 32px; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #6e6e73">Region</span>
+<span style="font-size: 15px; font-weight: 500">Subotica · Bačka Topola · Sombor<br>Kikinda · Senta</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="sekcije" style="padding: 24px 0 96px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+<span style="font-size: 15px; font-weight: 500; color: {{accent}}">Šta radimo</span>
+<h2 style="margin: 0; font-size: clamp(32px,3.6vw,48px); line-height: 1.08; letter-spacing: -.02em; font-weight: 700">Izaberite šta vam treba.</h2>
+</div>
+<div class="tiles">
+<sc-for list="{{tiles}}" as="tile" hint-placeholder-count="4">
+<a class="tile" href="{{tile.href}}" aria-label="{{tile.aria}}">
+<span style="display: block; position: relative; height: 280px; overflow: hidden">
+<img class="img" src="{{tile.src}}" alt="{{tile.photo}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{tile.pos}}; background: {{tile.tint}}">
+<span class="glass" style="position: absolute; left: 20px; top: 20px; display: inline-flex; align-items: center; gap: 8px; border-radius: 980px; padding: 7px 14px 7px 8px; font-size: 13px; font-weight: 500; color: #1d1d1f">
+<span style="width: 22px; height: 22px; border-radius: 50%; background: {{tile.dot}}"></span>{{tile.kicker}}
+</span>
+</span>
+<sc-if value="{{tile.rainbow}}" hint-placeholder-val="{{ false }}">
+<span style="display: flex; height: 6px">
+<sc-for list="{{rainbow}}" as="c" hint-placeholder-count="8"><span style="flex: 1; background: {{c}}"></span></sc-for>
+</span>
+</sc-if>
+<span style="display: flex; flex-direction: column; gap: 14px; padding: 26px 28px 28px; flex: 1">
+<span style="display: block; font-size: 28px; font-weight: 700; letter-spacing: -.015em; color: #1d1d1f">{{tile.title}}</span>
+<span style="display: block; font-size: 16px; line-height: 1.5; color: #6e6e73">{{tile.text}}</span>
+<span style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{tile.chips}}" as="chip" hint-placeholder-count="4"><span style="font-size: 13px; color: #424245; background: #f5f5f7; border-radius: 980px; padding: 6px 12px">{{chip}}</span></sc-for>
+</span>
+<span style="display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 6px; font-size: 16px; font-weight: 500; color: #1d1d1f">{{tile.cta}}
+<svg class="go" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{tile.dot}}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</span>
+</span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="o-nama" style="padding: 96px 0; background: #fff">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
+<span style="font-size: 15px; font-weight: 500; color: {{accent}}">O nama</span>
+<h2 style="margin: 0; font-size: clamp(32px,3.6vw,48px); line-height: 1.08; letter-spacing: -.02em; font-weight: 700">Vodeća birotehnička firma u regionu.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #6e6e73; font-weight: 300">Od 1995. održavamo kancelarije opština, škola, fakulteta i preduzeća. Ono što ne možemo da popravimo na licu mesta – zamenimo rezervnim aparatom dok traje popravka.</p>
+</div>
+<div class="stats">
+<sc-for list="{{stats}}" as="st" hint-placeholder-count="4">
+<div style="background: #f5f5f7; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 56px; font-weight: 700; letter-spacing: -.03em; color: #1d1d1f; display: flex; align-items: flex-start">
+<span class="roll" aria-hidden="true">
+<sc-for list="{{st.digits}}" as="dg" hint-placeholder-count="2">
+<span class="col" style="{{dg.style}}"><sc-for list="{{dg.nums}}" as="n" hint-placeholder-count="10"><span>{{n}}</span></sc-for></span>
+</sc-for>
+</span>
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">{{st.value}}</span>
+<span style="font-size: 28px; margin-left: 4px; color: {{accent}}">{{st.suffix}}</span>
+</span>
+<span style="font-size: 15px; line-height: 1.4; color: #6e6e73">{{st.label}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 36px; padding-top: 8px">
+<span style="font-size: 14px; color: #6e6e73">Servisiramo:</span>
+<sc-for list="{{brands}}" as="b" hint-placeholder-count="7"><span style="font-size: 20px; font-weight: 700; letter-spacing: -.01em; color: #aeaeb2">{{b}}</span></sc-for>
+</div>
+</div>
+</section>
+
+<section id="kontakt" style="padding: 96px 0">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 15px; font-weight: 500; color: {{accent}}">Kontakt</span>
+<h2 style="margin: 0; font-size: clamp(32px,3.6vw,48px); line-height: 1.08; letter-spacing: -.02em; font-weight: 700">Pozovite pravo odeljenje.</h2>
+</div>
+<div class="contact-grid">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div class="dept">
+<sc-for list="{{depts}}" as="d" hint-placeholder-count="5">
+<div style="background: #fff; border-radius: 20px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.04)">
+<span style="font-size: 14px; color: #6e6e73">{{d.name}}</span>
+<a href="{{d.tel}}" style="font-size: 20px; font-weight: 700; text-decoration: none">{{d.phone}}</a>
+<a href="{{d.mailto}}" style="font-size: 14px; color: #424245; text-decoration: none; overflow-wrap: anywhere">{{d.mail}}</a>
+</div>
+</sc-for>
+</div>
+<div style="background: #fff; border-radius: 20px; padding: 20px 22px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 15px; box-shadow: 0 1px 2px rgba(0,0,0,.04)">
+<span style="color: #6e6e73">Servis i fotokopirnica</span>
+<span style="font-weight: 500">Pon–pet 07–16h · Sub 08–12h</span>
+</div>
+</div>
+<div style="background: #fff; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgba(0,0,0,.04),0 8px 30px -12px rgba(0,0,0,.12)">
+<div role="img" aria-label="Mesto za mapu Subotice sa tri lokacije" style="height: 220px; background: #e8e8ed; display: flex; align-items: center; justify-content: center; color: #86868b; font-size: 14px">Mapa sa tri lokacije</div>
+<div style="display: flex; flex-direction: column; padding: 8px 24px 16px">
+<sc-for list="{{places}}" as="p" hint-placeholder-count="3">
+<div style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,.06)">
+<span style="flex: none; margin-top: 3px; width: 24px; height: 24px; border-radius: 50%; background: {{accent}}; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{p.n}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 17px; font-weight: 500">{{p.address}}</span>
+<span style="font-size: 14px; color: #6e6e73">{{p.what}}</span>
+</span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="background: #fff; border-top: 1px solid rgba(0,0,0,.06); padding: 48px 0 40px; font-size: 13px; color: #6e6e73">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 32px">
+<div class="foot">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 700; color: #1d1d1f; font-size: 14px">Biromarket 024 d.o.o.</span><span>Matije Gupca 56, 24000 Subotica</span><a href="mailto:info@biromarket024.rs" style="color: #6e6e73; text-decoration: none">info@biromarket024.rs</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 700; color: #1d1d1f; font-size: 14px">Usluge</span><a href="Servis.dc.html" style="color: #6e6e73; text-decoration: none">Servis i prodaja kopir aparata</a><a href="Fotokopirnica.dc.html" style="color: #6e6e73; text-decoration: none">Fotokopirnica i štampa</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 700; color: #1d1d1f; font-size: 14px">Prodavnice</span><a href="Kancelarija.dc.html" style="color: #6e6e73; text-decoration: none">Kancelarijski materijal</a><a href="CreativeShop.dc.html" style="color: #6e6e73; text-decoration: none">Creative Shop</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 700; color: #1d1d1f; font-size: 14px">Ekologija</span><span>Dozvola za sakupljanje praznih kertridža i tonera od 2012.</span></div>
+</div>
+<div style="border-top: 1px solid rgba(0,0,0,.06); padding-top: 20px">© 2026 Biromarket 024 d.o.o. Sva prava zadržana.</div>
+</div>
+</footer>
+
+<div class="{{toastCls}}" role="status" aria-live="polite">
+<div class="glass" style="border-radius: 18px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #1d1d1f; white-space: nowrap">
+<span style="width: 26px; height: 26px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center; flex: none">
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+</span>
+{{toastText}}
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#FF0000","options":["#FF0000","#E3000F","#C8102E"]},"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { rolled: false, toastOn: false, toastText: '' };
+  }
+  componentDidMount() {
+    this.rollTimer = setTimeout(() => this.setState({ rolled: true }), 450);
+  }
+  componentWillUnmount() {
+    clearTimeout(this.rollTimer);
+    clearTimeout(this.toastTimer);
+  }
+  toast(text) {
+    clearTimeout(this.toastTimer);
+    this.setState({ toastOn: true, toastText: text });
+    this.toastTimer = setTimeout(() => this.setState({ toastOn: false }), 2600);
+  }
+  digits(value, baseDelay) {
+    const s = String(value);
+    const rolled = this.state.rolled;
+    return s.split('').map((ch, i) => {
+      const d = Number(ch);
+      const delay = baseDelay + (s.length - 1 - i) * 45;
+      return {
+        nums: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        style: 'transform: translateY(-' + (rolled ? d : 0) + 'em); transition: transform 700ms cubic-bezier(.3,.75,.1,1) ' + delay + 'ms'
+      };
+    });
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#FF0000';
+    const soon = (name) => () => this.toast(name + ' – stranica dolazi u sledećem koraku');
+    const tiles = [
+      { title: 'Servis i prodaja kopir aparata', kicker: 'Servis', dot: accent, tint: '#eceef2', photo: 'Otvoren laserski štampač sa zaglavljenim papirom', src: '/_blob/1e8cb3ed50e5bef773314048ca3ca9d5', pos: '50% 45%', aria: 'Otvori Servis i prodaju kopir aparata',
+        text: 'Popravka i održavanje kopir aparata, štampača i multifunkcijskih uređaja. Izlazimo na teren, a dok popravljamo dobijate rezervni aparat.',
+        chips: ['Prijava kvara', 'Toneri i delovi', 'Novi aparati', 'Iznajmljivanje'], cta: 'Otvori servis', href: 'Servis.dc.html', rainbow: false },
+      { title: 'Fotokopirnica i štampa', kicker: 'Fotokopirnica', dot: '#1d1d1f', tint: '#eeedf3', photo: 'Monitor sa grafičkim dizajnom na ekranu', src: '/_blob/802e6c2353387e78bcd480d9dd494f8c', pos: '50% 40%', aria: 'Otvori Fotokopirnicu i štampu',
+        text: 'Kopiranje i skeniranje do velikih formata, vizit karte, kalendari i diplome, solventna štampa nalepnica i izloga, štampa na upaljačima i hemijskim.',
+        chips: ['Vizit karte', 'Solventna štampa', 'Nalepnice za izloge', 'Upaljači'], cta: 'Otvori fotokopirnicu', href: 'Fotokopirnica.dc.html', rainbow: false },
+      { title: 'Kancelarijski materijal', kicker: 'Online prodavnica', dot: '#0a7d4f', tint: '#ebf1ed', photo: 'Radni sto sa računarom i opremom', src: '/_blob/c4ccbcf0c045d821eead40a92ed3dc15', pos: '50% 55%', aria: 'Otvori prodavnicu kancelarijskog materijala',
+        text: 'Papir, registratori, fascikle, pribor za pisanje, toneri i kertridži – naručite online, platite na račun firme, preuzmite ili sačekajte dostavu.',
+        chips: ['Papir', 'Registratori', 'Toneri', 'Za firme'], cta: 'Otvori prodavnicu', href: 'Kancelarija.dc.html', rainbow: false },
+      { title: 'Creative Shop', kicker: 'creativeshop.rs', dot: '#EE7D15', tint: '#f6efe8', photo: 'Ručno oslikana majica na roze podlozi', src: '/_blob/af7e35444281bc3617ddce46d14059c6', pos: '50% 35%', aria: 'Otvori Creative Shop',
+        text: 'Majice, šolje, puzle, kačketi i pokloni sa vašom slikom ili tekstom. Dizajnirajte sami u online dizajneru – mi štampamo.',
+        chips: ['Majice', 'Šolje', 'Pokloni', 'Online dizajner'], cta: 'Otvori Creative Shop', href: 'CreativeShop.dc.html', rainbow: true }
+    ];
+    const stats = [
+      { value: '31', suffix: '', label: 'godina rada, od 1995.', digits: this.digits(31, 0) },
+      { value: '35', suffix: '', label: 'zaposlenih', digits: this.digits(35, 80) },
+      { value: '7', suffix: '', label: 'brendova koje servisiramo', digits: this.digits(7, 160) },
+      { value: '100', suffix: '+', label: 'zadovoljnih kupaca: opštine, škole, firme', digits: this.digits(100, 240) }
+    ];
+    return {
+      accent,
+      years: { digits: this.digits(31, 0) },
+      tiles,
+      stats,
+      rainbow: ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A'],
+      brands: ['Canon', 'Kyocera', 'HP', 'Konica Minolta', 'Epson', 'Lexmark', 'Samsung'],
+      depts: [
+        { name: 'Servis', phone: '024/601-193', tel: 'tel:+38124601193', mail: 'servis@biromarket024.rs', mailto: 'mailto:servis@biromarket024.rs' },
+        { name: 'Fotokopirnica', phone: '024/601-192', tel: 'tel:+38124601192', mail: 'kopirnica.bm@gmail.com', mailto: 'mailto:kopirnica.bm@gmail.com' },
+        { name: 'Magacin i prodaja', phone: '024/673-915', tel: 'tel:+38124673915', mail: 'prodaja@biromarket024.rs', mailto: 'mailto:prodaja@biromarket024.rs' },
+        { name: 'Administracija', phone: '024/601-190', tel: 'tel:+38124601190', mail: 'info@biromarket024.rs', mailto: 'mailto:info@biromarket024.rs' },
+        { name: 'Creative Shop', phone: '024/533-853', tel: 'tel:+38124533853', mail: 'info@creativeshop.rs', mailto: 'mailto:info@creativeshop.rs' }
+      ],
+      places: [
+        { n: '1', address: 'Matije Gupca 56', what: 'Sedište i administracija' },
+        { n: '2', address: 'Maksima Gorkog 40', what: 'Servis i fotokopirnica' },
+        { n: '3', address: 'Harambašićeva 14', what: 'Magacin – kancelarijski materijal' }
+      ],
+      reportFault: () => this.toast('Prijava kvara biće na stranici Servis – sledeći korak'),
+      orderToner: () => this.toast('Naručivanje tonera biće na stranici Servis – sledeći korak'),
+      toastCls: this.state.toastOn ? 'toast on' : 'toast',
+      toastText: this.state.toastText
+    };
+  }
+}
+</script>
+</body>
+</html>

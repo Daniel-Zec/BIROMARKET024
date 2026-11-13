@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Creative Shop – majice i pokloni sa tvojim dizajnom</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f5f5f7}
+a{color:#1d1d1f}a:hover{color:#000}
+*{box-sizing:border-box}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 32px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a{text-decoration:none;color:#424245;font-size:14px;font-weight:400;transition:color 150ms ease}
+.navlinks a:hover{color:#1d1d1f;transition-duration:100ms}
+.btn{appearance:none;border:0;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;border-radius:980px;font-weight:500;text-decoration:none;transition:transform 180ms cubic-bezier(.2,.8,.2,1),box-shadow 150ms ease,background-color 150ms ease}
+.btn:active{transform:scale(.97);transition-duration:80ms}
+.btn:focus-visible,.tile:focus-visible{outline:3px solid rgba(0,113,227,.5);outline-offset:3px}
+.btn-red{color:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 24px -8px rgba(255,0,0,.45)}
+.btn-red:hover{box-shadow:0 1px 2px rgba(0,0,0,.08),0 12px 28px -8px rgba(255,0,0,.55)}
+.btn-glass{color:#1d1d1f;background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.btn-glass:hover{background:rgba(255,255,255,.95)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center}
+.h1{font-size:clamp(44px,5.6vw,80px);line-height:1.02;letter-spacing:-.025em;font-weight:700;margin:0;color:#1d1d1f}
+.glass{background:rgba(255,255,255,.62);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 10px 30px -10px rgba(0,0,0,.18)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.tile{appearance:none;border:0;padding:0;margin:0;text-align:left;font-family:inherit;cursor:pointer;background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 30px -12px rgba(0,0,0,.12);transition:transform 220ms cubic-bezier(.22,1,.36,1),box-shadow 220ms ease}
+.tile:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.04),0 24px 48px -16px rgba(0,0,0,.22)}
+.tile:active{transform:translateY(-2px) scale(.985);transition-duration:80ms}
+.tile .img{transition:transform 500ms cubic-bezier(.22,1,.36,1)}
+.tile:hover .img{transform:scale(1.035)}
+.tile .go{transition:transform 220ms cubic-bezier(.22,1,.36,1)}
+.tile:hover .go{transform:translateX(4px)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.roll{display:inline-flex;height:1em;line-height:1;overflow:hidden;vertical-align:top}
+.roll .col{display:flex;flex-direction:column}
+.roll .col span{display:block;height:1em}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px}
+.dept{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.toast{position:fixed;left:50%;bottom:28px;z-index:50;transform:translate(-50%,10px);opacity:0;pointer-events:none;transition:opacity 350ms cubic-bezier(.22,1,.36,1),transform 600ms cubic-bezier(.22,1,.36,1)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+
+.sec{padding:88px 0}
+.kick{font-size:15px;font-weight:500}
+.h2{margin:0;font-size:clamp(30px,3.4vw,46px);line-height:1.08;letter-spacing:-.02em;font-weight:700;color:#1d1d1f}
+.lead{margin:0;font-size:19px;line-height:1.55;color:#6e6e73;font-weight:300}
+.card{background:#fff;border-radius:24px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 30px -12px rgba(0,0,0,.12)}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.ico{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.seg{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#ececf0;border-radius:14px;padding:4px}
+.seg3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.seg4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.seg .thumb{position:absolute;top:4px;bottom:4px;left:4px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);transition:transform 300ms cubic-bezier(.22,1,.36,1)}
+.seg button{position:relative;z-index:1;appearance:none;border:0;background:transparent;font-family:inherit;font-size:15px;font-weight:500;color:#424245;padding:10px 12px;border-radius:10px;cursor:pointer;transition:color 150ms ease}
+.seg button.on{color:#1d1d1f}
+.field{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#6e6e73;font-weight:500}
+.field input,.field select,.field textarea{font-family:inherit;font-size:16px;color:#1d1d1f;background:#f5f5f7;border:1px solid transparent;border-radius:12px;padding:12px 14px;outline:none;transition:border-color 150ms ease,background-color 150ms ease,box-shadow 150ms ease}
+.field input:focus,.field select:focus,.field textarea:focus{background:#fff;border-color:rgba(0,0,0,.15);box-shadow:0 0 0 4px rgba(0,113,227,.15)}
+.coll{display:grid;grid-template-rows:0fr;transition:grid-template-rows 450ms cubic-bezier(.4,0,.2,1)}
+.coll.open{grid-template-rows:1fr}
+.coll>div{overflow:hidden;opacity:0;transition:opacity 250ms ease}
+.coll.open>div{opacity:1;transition:opacity 300ms ease 120ms}
+.chev{transition:transform 300ms cubic-bezier(.22,1,.36,1)}
+.chev.open{transform:rotate(180deg)}
+.qa{appearance:none;border:0;background:transparent;width:100%;text-align:left;font-family:inherit;font-size:18px;font-weight:500;color:#1d1d1f;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer}
+.prod{display:flex;flex-direction:column;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px -12px rgba(0,0,0,.12);transition:transform 220ms cubic-bezier(.22,1,.36,1),box-shadow 220ms ease}
+.prod:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.04),0 18px 36px -16px rgba(0,0,0,.2)}
+.add{appearance:none;border:0;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;border-radius:980px;padding:9px 14px;display:inline-flex;align-items:center;gap:6px;transition:transform 180ms cubic-bezier(.2,.8,.2,1),background-color 200ms ease,color 200ms ease}
+.add:active{transform:scale(.95);transition-duration:80ms}
+.cat{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:#1d1d1f;font-size:14px;font-weight:500;text-align:center}
+.cat .c{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform 220ms cubic-bezier(.22,1,.36,1)}
+.cat:hover .c{transform:translateY(-3px) scale(1.04)}
+.cats{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px}
+.badge{min-width:20px;height:20px;padding:0 6px;border-radius:980px;color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;transition:transform 300ms cubic-bezier(.34,1.56,.64,1)}
+.badge.bump{transform:scale(1.25)}
+.meter{height:8px;border-radius:980px;background:#ececf0;overflow:hidden}
+.meter span{display:block;height:100%;border-radius:980px;transition:width 1400ms cubic-bezier(.22,1,.36,1)}
+.spin{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;animation:sp 700ms linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:#424245;text-decoration:none}
+@media (max-width:900px){.g3,.g4,.g2,.split{grid-template-columns:minmax(0,1fr)}.cats{grid-template-columns:repeat(4,minmax(0,1fr))}.seg4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+@media (max-width:900px){
+.hero-grid,.tiles,.contact-grid{grid-template-columns:minmax(0,1fr)}
+.stats,.foot{grid-template-columns:repeat(2,minmax(0,1fr))}
+.navlinks{display:none}
+.wrap{padding:0 20px}
+}
+@media (max-width:520px){.dept{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:0ms!important}}
+</style>
+</helmet>
+<div style="font-family: Roboto, system-ui, sans-serif; color: #1d1d1f; background: #FBFAF6; width: 100%; -webkit-font-smoothing: antialiased">
+<div style="display: flex; height: 5px"><span style="flex: 1; background: #ED1C24"></span><span style="flex: 1; background: #EE7D15"></span><span style="flex: 1; background: #F7BE43"></span><span style="flex: 1; background: #BDCF37"></span><span style="flex: 1; background: #55B976"></span><span style="flex: 1; background: #437E81"></span><span style="flex: 1; background: #823967"></span><span style="flex: 1; background: #A0586A"></span></div>
+<header class="nav" style="background: rgba(251,250,246,.75)">
+<div class="wrap" style="display: flex; align-items: center; gap: 24px; height: 68px">
+<a href="CreativeShop.dc.html" aria-label="Creative Shop" style="text-decoration: none; font-size: 24px; font-weight: 900; letter-spacing: -.02em; color: #3E3E3E">creativeshop<span style="color: #ED1C24">.rs</span></a>
+<label style="flex: 1; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,.05); border-radius: 12px; padding: 0 14px; height: 42px; max-width: 460px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+<input type="search" placeholder="npr. superman, mama, rođendan" aria-label="Pretraga motiva" style="border: 0; background: transparent; outline: none; font-family: inherit; font-size: 15px; flex: 1; min-width: 0">
+</label>
+<span style="display: flex; align-items: center; gap: 18px; margin-left: auto; font-size: 14px; color: #3E3E3E">
+<span style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3E3E3E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>Prijava</span>
+<span style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3E3E3E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7z"></path><path d="M9 7V6a3 3 0 0 1 6 0v1"></path></svg>Korpa <span class="{{badgeCls}}" style="background: #ED1C24">{{count}}</span></span>
+</span>
+</div>
+<div class="wrap" style="display: flex; gap: 28px; overflow-x: auto"><a href="#ponuda" style="text-decoration: none; color: #3E3E3E; font-size: 14px; font-weight: 500; padding: 12px 2px; border-bottom: 3px solid #ED1C24; white-space: nowrap">Dizajner</a><a href="#ponuda" style="text-decoration: none; color: #3E3E3E; font-size: 14px; font-weight: 500; padding: 12px 2px; border-bottom: 3px solid #EE7D15; white-space: nowrap">Muški</a><a href="#ponuda" style="text-decoration: none; color: #3E3E3E; font-size: 14px; font-weight: 500; padding: 12px 2px; border-bottom: 3px solid #F7BE43; white-space: nowrap">Ženski</a><a href="#ponuda" style="text-decoration: none; color: #3E3E3E; font-size: 14px; font-weight: 500; padding: 12px 2px; border-bottom: 3px solid #BDCF37; white-space: nowrap">Extra veličina</a><a href="#ponuda" style="text-decoration: none; color: #3E3E3E; font-size: 14px; font-weight: 500; padding: 12px 2px; border-bottom: 3px solid #55B976; white-space: nowrap">Dečiji</a><a href="#ponuda" style="text-decoration: none; color: #3E3E3E; font-size: 14px; font-weight: 500; padding: 12px 2px; border-bottom: 3px solid #437E81; white-space: nowrap">Unikatni pokloni</a><a href="#ponuda" style="text-decoration: none; color: #3E3E3E; font-size: 14px; font-weight: 500; padding: 12px 2px; border-bottom: 3px solid #823967; white-space: nowrap">Rasprodaja</a></div>
+</header>
+
+<section style="padding: 48px 0 64px">
+<div class="wrap split">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<span style="align-self: flex-start; font-size: 14px; font-weight: 700; color: #fff; background: #823967; border-radius: 980px; padding: 7px 14px">Svaki mesec novi motivi</span>
+<h1 class="h1" style="font-size: clamp(44px,5.6vw,80px); color: #3E3E3E">Tvoja ideja.<br><span style="color: #ED1C24">Na</span> <span style="color: #EE7D15">ma</span><span style="color: #55B976">ji</span><span style="color: #437E81">ci.</span></h1>
+<p class="lead" style="max-width: 34ch">Majice, duksevi, šolje, puzle i kačketi sa tvojom slikom ili tekstom. Dizajniraj sam u online dizajneru – brzo i lako.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#ponuda" class="btn btn-red" style="background: #ED1C24; padding: 15px 26px; font-size: 17px; box-shadow: 0 10px 24px -10px rgba(237,28,36,.6)">Otvori dizajner <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#ponuda" class="btn btn-glass" style="padding: 15px 26px; font-size: 17px">Pogledaj ponudu</a>
+</div>
+</div>
+<div style="position: relative">
+<div style="position: relative; aspect-ratio: 1 / 1; max-height: 560px; width: 100%; border-radius: 32px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(130,57,103,.35)">
+<img src="/_blob/af7e35444281bc3617ddce46d14059c6" alt="Ručno oslikana majica na roze podlozi" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+</div>
+<div class="glass" style="position: absolute; left: -24px; bottom: 28px; border-radius: 22px; padding: 14px 18px; display: flex; align-items: center; gap: 12px">
+<span style="display: flex"><span style="width: 22px; height: 22px; border-radius: 50%; background: #ED1C24; margin-left: -6px; box-shadow: 0 0 0 2px #fff"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #EE7D15; margin-left: -6px; box-shadow: 0 0 0 2px #fff"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #F7BE43; margin-left: -6px; box-shadow: 0 0 0 2px #fff"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #BDCF37; margin-left: -6px; box-shadow: 0 0 0 2px #fff"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #55B976; margin-left: -6px; box-shadow: 0 0 0 2px #fff"></span></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 13px; color: #6e6e73">Majica iz dizajnera</span><span style="font-size: 17px; font-weight: 700">od 690 RSD</span></span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" style="padding-top: 16px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px">
+<h2 class="h2" style="color: #3E3E3E">Kako radi dizajner</h2>
+<div class="g3"><div class="card" style="padding: 26px; display: flex; flex-direction: column; gap: 12px"><span style="width: 44px; height: 44px; border-radius: 50%; background: #ED1C24; color: #fff; font-size: 18px; font-weight: 900; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 21px; font-weight: 700">Izaberi proizvod</span><span style="font-size: 15px; line-height: 1.5; color: #6e6e73">Majica, duks, šolja, puzla, kačket…</span></div><div class="card" style="padding: 26px; display: flex; flex-direction: column; gap: 12px"><span style="width: 44px; height: 44px; border-radius: 50%; background: #F7BE43; color: #fff; font-size: 18px; font-weight: 900; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 21px; font-weight: 700">Dodaj sliku ili tekst</span><span style="font-size: 15px; line-height: 1.5; color: #6e6e73">U online dizajneru – vidiš kako izgleda pre poručivanja.</span></div><div class="card" style="padding: 26px; display: flex; flex-direction: column; gap: 12px"><span style="width: 44px; height: 44px; border-radius: 50%; background: #55B976; color: #fff; font-size: 18px; font-weight: 900; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 21px; font-weight: 700">Mi štampamo</span><span style="font-size: 15px; line-height: 1.5; color: #6e6e73">Gotov proizvod šaljemo na adresu ili ga preuzimaš u Subotici.</span></div></div>
+</div>
+</section>
+
+<section id="ponuda" class="sec" style="background: #fff">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap"><h2 class="h2" style="color: #3E3E3E">Akcija i novo</h2><span style="display: flex; gap: 8px; flex-wrap: wrap"><span style="font-size: 13px; font-weight: 500; color: #3E3E3E; background: #f5f5f7; border-radius: 980px; padding: 7px 12px; box-shadow: inset 0 -2px 0 #ED1C24">Muški</span><span style="font-size: 13px; font-weight: 500; color: #3E3E3E; background: #f5f5f7; border-radius: 980px; padding: 7px 12px; box-shadow: inset 0 -2px 0 #EE7D15">Ženski</span><span style="font-size: 13px; font-weight: 500; color: #3E3E3E; background: #f5f5f7; border-radius: 980px; padding: 7px 12px; box-shadow: inset 0 -2px 0 #F7BE43">Extra veličina</span><span style="font-size: 13px; font-weight: 500; color: #3E3E3E; background: #f5f5f7; border-radius: 980px; padding: 7px 12px; box-shadow: inset 0 -2px 0 #BDCF37">Dečiji</span><span style="font-size: 13px; font-weight: 500; color: #3E3E3E; background: #f5f5f7; border-radius: 980px; padding: 7px 12px; box-shadow: inset 0 -2px 0 #55B976">Unikatni pokloni</span></span></div>
+<div class="g4"><div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #fde8e9; position: relative; overflow: hidden"><img src="/_blob/34abd3cd306036dbd0cf07e763921c0a" alt="Majica po tvom dizajnu" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; left: 14px; top: 14px; font-size: 12px; font-weight: 700; color: #fff; background: #ED1C24; border-radius: 980px; padding: 5px 10px">Dizajniraj sam</span>
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Dizajner</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Majica po tvom dizajnu</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">690 RSD</span>
+<button type="button" class="add" onClick="{{add0}}" style="background: {{addBg0}}; color: #fff" aria-label="Dodaj u korpu: Majica po tvom dizajnu">{{addLbl0}}</button>
+</span>
+</div>
+</div>
+<div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #fef0e3; position: relative; overflow: hidden"><img src="/_blob/99866807e224e9cd2282ab2a1183c9b0" alt="Pamučna ženska majica" style="width: 100%; height: 100%; object-fit: cover; display: block">
+
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Ženski</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Pamučna ženska majica</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">553 RSD</span>
+<button type="button" class="add" onClick="{{add1}}" style="background: {{addBg1}}; color: #fff" aria-label="Dodaj u korpu: Pamučna ženska majica">{{addLbl1}}</button>
+</span>
+</div>
+</div>
+<div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #fdf5e1; position: relative; overflow: hidden"><img src="/_blob/d1f7590bce77acbe283ad6304bb713bd" alt="Esprit Single muška majica" style="width: 100%; height: 100%; object-fit: cover; display: block">
+
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Muški</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Esprit Single muška majica</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">990 RSD</span>
+<button type="button" class="add" onClick="{{add2}}" style="background: {{addBg2}}; color: #fff" aria-label="Dodaj u korpu: Esprit Single muška majica">{{addLbl2}}</button>
+</span>
+</div>
+</div>
+<div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #f5f8e3; position: relative; overflow: hidden"><img src="/_blob/5f1a8c6d4bd66b0a7db6a0c733be036d" alt="Plišani Medo sa majicom za štampu" style="width: 100%; height: 100%; object-fit: cover; display: block">
+
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Unikatni pokloni</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Plišani Medo sa majicom za štampu</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">1.490 RSD</span>
+<button type="button" class="add" onClick="{{add3}}" style="background: {{addBg3}}; color: #fff" aria-label="Dodaj u korpu: Plišani Medo sa majicom za štampu">{{addLbl3}}</button>
+</span>
+</div>
+</div>
+<div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #e8f5ec; position: relative; overflow: hidden"><img src="/_blob/b3bfa5e82c37dd641f4ecb33f0aced1c" alt="Vodeni ram sa vašom slikom" style="width: 100%; height: 100%; object-fit: cover; display: block">
+
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Unikatni pokloni</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Vodeni ram sa vašom slikom</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">790 RSD</span>
+<button type="button" class="add" onClick="{{add4}}" style="background: {{addBg4}}; color: #fff" aria-label="Dodaj u korpu: Vodeni ram sa vašom slikom">{{addLbl4}}</button>
+</span>
+</div>
+</div>
+<div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #e6f0f0; position: relative; overflow: hidden"><img src="/_blob/3cc087b93cd791104fc58c2ae9e3cbf1" alt="Boca sa navlakom" style="width: 100%; height: 100%; object-fit: cover; display: block">
+
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Unikatni pokloni</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Boca sa navlakom</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">290 RSD</span>
+<button type="button" class="add" onClick="{{add5}}" style="background: {{addBg5}}; color: #fff" aria-label="Dodaj u korpu: Boca sa navlakom">{{addLbl5}}</button>
+</span>
+</div>
+</div>
+<div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #f3e7ef; position: relative; overflow: hidden"><img src="/_blob/933e9ad00c2c2a65bd7bbe836224b3af" alt="Ukrasna vreća za poklone" style="width: 100%; height: 100%; object-fit: cover; display: block">
+
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Rasprodaja</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Ukrasna vreća za poklone</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">290 RSD</span>
+<button type="button" class="add" onClick="{{add6}}" style="background: {{addBg6}}; color: #fff" aria-label="Dodaj u korpu: Ukrasna vreća za poklone">{{addLbl6}}</button>
+</span>
+</div>
+</div>
+<div class="prod">
+<div style="aspect-ratio: 1 / 1; background: #f4ebee; position: relative; overflow: hidden"><img src="/_blob/0aca758f6ed84415cf26d6516a519d38" alt="Šolja sa tvojom slikom" style="width: 100%; height: 100%; object-fit: cover; display: block">
+
+</div>
+<div style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+<span style="font-size: 12px; color: #6e6e73">Unikatni pokloni</span>
+<span style="font-size: 15px; font-weight: 500; line-height: 1.35; min-height: 2.7em">Šolja sa tvojom slikom</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px">
+<span style="font-size: 17px; font-weight: 700">[cena] RSD</span>
+<button type="button" class="add" onClick="{{add7}}" style="background: {{addBg7}}; color: #fff" aria-label="Dodaj u korpu: Šolja sa tvojom slikom">{{addLbl7}}</button>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap"><h2 class="h2" style="color: #3E3E3E">Novosti</h2><span style="font-size: 15px; color: #6e6e73">Bodovi za kupce koji se vraćaju · Reklamacije i garancija</span></div>
+<div class="g3"><div class="card" style="overflow: hidden; display: flex; flex-direction: column"><span style="height: 10px; background: #ED1C24"></span><span style="padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; color: #6e6e73">Novosti</span><span style="font-size: 19px; font-weight: 700; line-height: 1.3">Poklon koji razumete samo vas dvoje</span></span></div><div class="card" style="overflow: hidden; display: flex; flex-direction: column"><span style="height: 10px; background: #437E81"></span><span style="padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; color: #6e6e73">Novosti</span><span style="font-size: 19px; font-weight: 700; line-height: 1.3">Vodič za cozy dejtove kod kuće</span></span></div><div class="card" style="overflow: hidden; display: flex; flex-direction: column"><span style="height: 10px; background: #823967"></span><span style="padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; color: #6e6e73">Novosti</span><span style="font-size: 19px; font-weight: 700; line-height: 1.3">Strašne priče za plašljive kupce</span></span></div></div>
+</div>
+</section>
+<footer style="background: #3E3E3E; color: #e8e8ed; padding: 32px 0; font-size: 13px">
+<div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px">
+<span>Creative Shop · deo Biromarket 024 d.o.o. · 024/533-853 · info@creativeshop.rs</span>
+<a href="Main.dc.html" style="color: #e8e8ed; text-decoration: none">biromarket024.rs</a>
+</div>
+</footer>
+<div class="{{toastCls}}" role="status" aria-live="polite">
+<div class="glass" style="border-radius: 18px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #1d1d1f; white-space: nowrap">
+<span style="width: 26px; height: 26px; border-radius: 50%; background: {{toastColor}}; display: flex; align-items: center; justify-content: center; flex: none">
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+</span>
+{{toastText}}
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 3200}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { count: 0, bump: false, added: {}, toastOn: false, toastText: '' }; }
+
+  toast(text) {
+    clearTimeout(this.toastTimer);
+    this.setState({ toastOn: true, toastText: text });
+    this.toastTimer = setTimeout(() => this.setState({ toastOn: false }), 2600);
+  }
+  componentWillUnmount() { (this.timers || []).forEach(clearTimeout); clearTimeout(this.toastTimer); }
+  later(fn, ms) { this.timers = this.timers || []; this.timers.push(setTimeout(fn, ms)); }
+
+  renderVals() {
+    const accent = '#ED1C24';
+    const st = this.state;
+    const names = ["Majica po tvom dizajnu", "Pamučna ženska majica", "Esprit Single muška majica", "Plišani Medo sa majicom za štampu", "Vodeni ram sa vašom slikom", "Boca sa navlakom", "Ukrasna vreća za poklone", "Šolja sa tvojom slikom"];
+    const v = { accent, count: st.count, badgeCls: st.bump ? 'badge bump' : 'badge',
+      toastCls: st.toastOn ? 'toast on' : 'toast', toastText: st.toastText, toastColor: '#55B976' };
+    names.forEach((n, i) => {
+      const on = !!st.added[i];
+      v['addLbl' + i] = on ? '✓ Dodato' : '+ Korpa';
+      v['addBg' + i] = on ? '#1f9d55' : '#3E3E3E';
+      v['add' + i] = () => {
+        this.setState({ count: st.count + 1, bump: true, added: Object.assign({}, st.added, { [i]: true }) });
+        this.later(() => this.setState({ bump: false }), 180);
+        this.later(() => this.setState((s) => ({ added: Object.assign({}, s.added, { [i]: false }) })), 1600);
+        this.toast(n + ' – u korpi');
+      };
+    });
+    return v;
+  }
+}
+</script>
+</body>
+</html>
