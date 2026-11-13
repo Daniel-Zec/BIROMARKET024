@@ -113,17 +113,10 @@ function Shirt({ st, set, t, compact }) {
 
   return (
     <div className={`dz-stage${compact ? ' compact' : ''}`} onPointerDown={() => set({ sel: null })}>
-      <svg className="dz-shirt" viewBox="0 0 400 440" aria-label={`${t.product} – ${t.colorNames[st.color]}`}>
-        <defs>
-          <linearGradient id="dzShade" x1="0" x2="1"><stop offset="0" stopColor="#000" stopOpacity=".10" /><stop offset=".25" stopColor="#000" stopOpacity="0" /><stop offset=".75" stopColor="#000" stopOpacity="0" /><stop offset="1" stopColor="#000" stopOpacity=".12" /></linearGradient>
-        </defs>
-        <path d={st.side === 'front'
-          ? 'M138 26c14 26 110 26 124 0l86 40 46 84-58 30-22-34v286H86V146l-22 34-58-30 46-84z'
-          : 'M138 26c20 10 104 10 124 0l86 40 46 84-58 30-22-34v286H86V146l-22 34-58-30 46-84z'}
-          fill={fill} stroke="rgba(0,0,0,.14)" strokeWidth="2" strokeLinejoin="round" />
-        <path d="M138 26c14 26 110 26 124 0l86 40 46 84-58 30-22-34v286H86V146l-22 34-58-30 46-84z" fill="url(#dzShade)" />
-        {st.side === 'front' && <path d="M146 30c16 22 92 22 108 0" fill="none" stroke="rgba(0,0,0,.18)" strokeWidth="5" strokeLinecap="round" />}
-      </svg>
+      <div className="dz-shirt" aria-label={`${t.product} – ${t.colorNames[st.color]}`} role="img">
+        <img src={`${import.meta.env.BASE_URL}img/dizajner/tee-front.webp`} alt="" draggable="false" className={st.color === 'bela' ? '' : 'tinted'} style={st.side === 'back' ? { transform: 'scaleX(-1)' } : undefined} />
+        {st.color !== 'bela' && <span className="dz-tint" style={{ background: fill, WebkitMaskImage: `url(${import.meta.env.BASE_URL}img/dizajner/tee-mask.webp)`, maskImage: `url(${import.meta.env.BASE_URL}img/dizajner/tee-mask.webp)`, ...(st.side === 'back' ? { transform: 'scaleX(-1)' } : {}) }} />}
+      </div>
       <div className="dz-area" ref={areaRef} style={{ borderColor: dark ? 'rgba(255,255,255,.55)' : 'rgba(0,0,0,.28)' }}>
         <span className="dz-area-label" style={{ color: dark ? 'rgba(255,255,255,.7)' : 'rgba(0,0,0,.4)' }}>{t.printArea}</span>
         {els.sort((a, b) => a.z - b.z).map((l) => (
