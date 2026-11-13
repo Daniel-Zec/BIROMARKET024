@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Footer, Icon, img, scrollTo } from '../components/ui.jsx'
+import { Nav, Footer, Icon, img, scrollTo } from '../components/ui.jsx'
 import { ProductCard, useCart } from '../components/Shop.jsx'
 
 const CATS = [
@@ -35,24 +35,17 @@ export default function Kancelarija() {
   const { add, flyLayer, CartButton } = useCart(pageRef)
   return (
     <div className="page" ref={pageRef}>
-      <div style={{ background: '#1d1d1f', color: '#f5f5f7', fontSize: 13 }}>
-        <div className="wrap" style={{ display: 'flex', justifyContent: 'space-between', gap: 16, padding: '8px 32px', flexWrap: 'wrap' }}>
-          <Link to="/" style={{ color: '#f5f5f7', textDecoration: 'none' }}>← biromarket024.rs</Link>
-          <span>Plaćanje na račun firme · Dostava po Subotici i okolini</span>
-        </div>
-      </div>
-      <header className="nav">
-        <div className="wrap nav-row" style={{ height: 72 }}>
-          <Link to="/kancelarija" aria-label="Biromarket 024 prodavnica" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="Biromarket 024" style={{ height: 30, width: 'auto', display: 'block' }} /><span style={{ fontSize: 13, fontWeight: 500, color: 'var(--muted)', borderLeft: '1px solid rgba(0,0,0,.12)', paddingLeft: 10 }}>Prodavnica</span>
-          </Link>
+      <Nav />
+      <div className="shopbar">
+        <div className="wrap shopbar-row">
+          <span className="shopbar-title"><Icon name="cart" size={18} stroke={2} /> Prodavnica kancelarijskog materijala</span>
           <label className="search"><Icon name="search" size={18} color="#6e6e73" stroke={2} /><input type="search" placeholder="Pretraži papir, registratore, tonere…" aria-label="Pretraga proizvoda" /></label>
           <span style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <span className="cart"><Icon name="user" size={20} />Moj nalog</span>
             <CartButton />
           </span>
         </div>
-      </header>
+      </div>
 
       <section style={{ padding: '36px 0 24px' }}>
         <div className="wrap">

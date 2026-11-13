@@ -30,7 +30,7 @@ export default function CreativeShop() {
       <div style={{ display: 'flex', height: 5 }}>{RB.map((c) => <span key={c} style={{ flex: 1, background: c }} />)}</div>
       <header className="nav" style={{ background: 'rgba(251,250,246,.75)' }}>
         <div className="wrap nav-row" style={{ height: 68 }}>
-          <Link to="/creative-shop" aria-label="Creative Shop" style={{ textDecoration: 'none', fontSize: 24, fontWeight: 900, letterSpacing: '-.02em', color: '#3e3e3e' }}>creativeshop<span style={{ color: '#ED1C24' }}>.rs</span></Link>
+          <Link to="/creative-shop" aria-label="creativeshop.rs – početna" style={{ display: 'block', lineHeight: 0 }}><img src={`${import.meta.env.BASE_URL}logo/creativeshop-logo.svg`} alt="creativeshop.rs" style={{ height: 46, width: 'auto' }} /></Link>
           <label className="search" style={{ maxWidth: 460 }}><Icon name="search" size={18} color="#6e6e73" stroke={2} /><input type="search" placeholder="npr. superman, mama, rođendan" aria-label="Pretraga motiva" /></label>
           <span style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <span className="cart"><Icon name="user" size={20} />Prijava</span>
@@ -95,7 +95,7 @@ export default function CreativeShop() {
         </div>
       </section>
 
-      <section className="sec">
+      <section id="novosti" className="sec" style={{ scrollMarginTop: 110 }}>
         <div className="wrap stack" style={{ gap: 28 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: 16, flexWrap: 'wrap' }}>
             <h2 className="h2">Novosti</h2>
@@ -113,11 +113,43 @@ export default function CreativeShop() {
         </div>
       </section>
 
-      <footer style={{ background: '#3e3e3e', color: '#e8e8ed', padding: '32px 0', fontSize: 13 }}>
-        <div className="wrap" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 12 }}>
-          <span>Creative Shop · deo Biromarket 024 d.o.o. · 024/533-853 · info@creativeshop.rs</span>
-          <Link to="/" style={{ color: '#e8e8ed', textDecoration: 'none' }}>biromarket024.rs</Link>
+      <footer className="cs-foot">
+        <div className="wrap">
+          <div className="cs-foot-grid">
+            <div className="cs-tile" style={{ background: '#BDCF37', color: '#3e3e3e' }}>
+              <b>Kupovina</b>
+              <a role="button" tabIndex={0} onClick={() => scrollTo('ponuda')}>Reklamacija i garancija</a>
+              <a role="button" tabIndex={0} onClick={() => scrollTo('ponuda')}>Registracija</a>
+              <a role="button" tabIndex={0} onClick={() => scrollTo('ponuda')}>Bodovanje za verne kupce</a>
+            </div>
+            <div className="cs-tile" style={{ background: '#437E81', color: '#fff' }}>
+              <b>Kontaktirajte nas</b>
+              <a href="tel:+38124533853">024/533-853</a>
+              <a href="mailto:info@creativeshop.rs">info@creativeshop.rs</a>
+              <span className="cs-social">Facebook · YouTube</span>
+            </div>
+            <div className="cs-tile" style={{ background: '#823967', color: '#fff' }}>
+              <b>Plaćanje i isporuka</b>
+              <a role="button" tabIndex={0} onClick={() => scrollTo('ponuda')}>Načini plaćanja</a>
+              <a role="button" tabIndex={0} onClick={() => scrollTo('ponuda')}>Isporuka, naknade i uslovi</a>
+              <a role="button" tabIndex={0} onClick={() => scrollTo('ponuda')}>Tabela veličina</a>
+            </div>
+            <div className="cs-tile" style={{ background: '#F7BE43', color: '#3e3e3e' }}>
+              <b>Novosti</b>
+              {POSTS.map(([t]) => <a key={t} role="button" tabIndex={0} onClick={() => scrollTo('novosti')}>{t}</a>)}
+            </div>
+            <div className="cs-tile cs-news" style={{ background: '#EE7D15', color: '#fff' }}>
+              <b>Novi motivi na mejl</b>
+              <span>Popusti i novi dizajni, jednom nedeljno.</span>
+              <form onSubmit={(e) => e.preventDefault()}><input type="email" placeholder="Vaš e-mail" aria-label="E-mail za novosti" /><button type="submit">Prijavi me</button></form>
+            </div>
+          </div>
+          <div className="cs-foot-bottom">
+            <img src={`${import.meta.env.BASE_URL}logo/creativeshop-logo.svg`} alt="creativeshop.rs" style={{ height: 34, width: 'auto' }} />
+            <span>© 2026 Creative Shop · deo Biromarket 024 d.o.o. · Prototip</span>
+          </div>
         </div>
+        <div style={{ display: 'flex', height: 6 }}>{RB.map((c) => <span key={c} style={{ flex: 1, background: c }} />)}</div>
       </footer>
       {flyLayer}
     </div>

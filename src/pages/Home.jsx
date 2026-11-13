@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Count, Roll } from 'micro-motion'
-import { Nav, Icon, img, scrollTo, BrandMarquee } from '../components/ui.jsx'
+import { Nav, Footer, Icon, img, scrollTo, BrandMarquee } from '../components/ui.jsx'
 
 const RAINBOW = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 
@@ -204,17 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer style={{ background: '#fff', borderTop: '1px solid rgba(0,0,0,.06)', padding: '48px 0 40px', fontSize: 13, color: 'var(--muted)' }}>
-        <div className="wrap stack" style={{ gap: 32 }}>
-          <div className="foot">
-            <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Biromarket 024 d.o.o.</b><span>Matije Gupca 56, 24000 Subotica</span><a href="mailto:info@biromarket024.rs" style={{ textDecoration: 'none' }}>info@biromarket024.rs</a></div>
-            <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Usluge</b><Link to="/servis" style={{ textDecoration: 'none' }}>Servis i prodaja kopir aparata</Link><Link to="/fotokopirnica" style={{ textDecoration: 'none' }}>Fotokopirnica i štampa</Link></div>
-            <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Prodavnice</b><Link to="/kancelarija" style={{ textDecoration: 'none' }}>Kancelarijski materijal</Link><Link to="/creative-shop" style={{ textDecoration: 'none' }}>Creative Shop</Link></div>
-            <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Ekologija</b><span>Dozvola za sakupljanje praznih kertridža i tonera od 2012.</span></div>
-          </div>
-          <div style={{ borderTop: '1px solid rgba(0,0,0,.06)', paddingTop: 20 }}>© 2026 Biromarket 024 d.o.o. · Prototip novog sajta</div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

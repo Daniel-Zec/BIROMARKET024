@@ -133,30 +133,35 @@ export function BackLink() {
 }
 export function Footer() {
   return (
-    <footer style={{ background: '#fff', borderTop: '1px solid rgba(0,0,0,.06)', padding: '32px 0', fontSize: 13, color: 'var(--muted)' }}>
-      <div className="wrap" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 12 }}>
-        <span>© 2026 Biromarket 024 d.o.o. · Matije Gupca 56, 24000 Subotica · Prototip</span>
-        <Link to="/" style={{ color: 'var(--muted)', textDecoration: 'none' }}>Nazad na naslovnu</Link>
+    <footer style={{ background: '#fff', borderTop: '1px solid rgba(0,0,0,.06)', padding: '48px 0 40px', fontSize: 13, color: 'var(--muted)' }}>
+      <div className="wrap stack" style={{ gap: 32 }}>
+        <div className="foot">
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Biromarket 024 d.o.o.</b><span>Matije Gupca 56, 24000 Subotica</span><a href="mailto:info@biromarket024.rs" style={{ textDecoration: 'none' }}>info@biromarket024.rs</a></div>
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Usluge</b><Link to="/servis" style={{ textDecoration: 'none' }}>Servis i prodaja kopir aparata</Link><Link to="/fotokopirnica" style={{ textDecoration: 'none' }}>Fotokopirnica i štampa</Link></div>
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Prodavnice</b><Link to="/kancelarija" style={{ textDecoration: 'none' }}>Kancelarijski materijal</Link><Link to="/creative-shop" style={{ textDecoration: 'none' }}>Creative Shop</Link></div>
+          <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>Ekologija</b><span>Dozvola za sakupljanje praznih kertridža i tonera od 2012.</span></div>
+        </div>
+        <div style={{ borderTop: '1px solid rgba(0,0,0,.06)', paddingTop: 20 }}>© 2026 Biromarket 024 d.o.o. · Prototip novog sajta</div>
       </div>
     </footer>
   )
 }
 
-/* Brand logos, scrolling slowly in a loop (pauses on hover). */
+/* Brand logos, scrolling slowly in a never-ending loop. */
 const BRAND_LOGOS = [
-  ['Canon', 'canon', 26], ['Kyocera', 'kyocera', 30], ['HP', 'hp', 34], ['Konica Minolta', 'konica-minolta', 36],
+  ['Canon', 'canon', 26], ['HP', 'hp', 34], ['Konica Minolta', 'konica-minolta', 36],
   ['Epson', 'epson', 22], ['Lexmark', 'lexmark', 28], ['Samsung', 'samsung', 16],
 ]
 export function BrandMarquee({ label = 'Servisiramo:' }) {
   const row = (hidden) => BRAND_LOGOS.map(([name, file, h]) => (
-    <img key={file + hidden} src={`${import.meta.env.BASE_URL}logo/brands/${file}.svg`} alt={hidden ? '' : name}
+    <img key={file + String(hidden)} src={`${import.meta.env.BASE_URL}logo/brands/${file}.svg`} alt={hidden ? '' : name}
       aria-hidden={hidden || undefined} style={{ height: h }} loading="lazy" />
   ))
   return (
     <div className="brands">
       <span className="small">{label}</span>
       <div className="marquee">
-        <div className="marquee-track">{row(false)}{row(true)}</div>
+        <div className="marquee-track">{row(false)}{row(1)}{row(2)}{row(3)}</div>
       </div>
     </div>
   )
