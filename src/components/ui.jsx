@@ -1,7 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Toast } from 'micro-motion'
-import Logo from './Logo.jsx'
 
 export const img = (name) => `${import.meta.env.BASE_URL}img/${name}`
 
@@ -81,7 +80,7 @@ export function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-row">
-        <Link to="/" aria-label="Biromarket 024 – naslovna"><Logo /></Link>
+        <Link to="/" aria-label="Biromarket 024 – naslovna"><img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="Biromarket 024" style={{ height: 30, width: 'auto', display: 'block' }} /></Link>
         <nav className="navlinks" aria-label="Glavni meni">
           {LINKS.map(([t, to]) => <NavLink key={to} to={to}>{t}</NavLink>)}
           <Link to="/#kontakt" onClick={() => setTimeout(() => scrollTo('kontakt'), 50)}>Kontakt</Link>

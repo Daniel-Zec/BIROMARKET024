@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../components/Logo.jsx'
 import { Footer, Icon, img, scrollTo } from '../components/ui.jsx'
 import { ProductCard, useCart } from '../components/Shop.jsx'
 
@@ -45,7 +44,7 @@ export default function Kancelarija() {
       <header className="nav">
         <div className="wrap nav-row" style={{ height: 72 }}>
           <Link to="/kancelarija" aria-label="Biromarket 024 prodavnica" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <Logo /><span style={{ fontSize: 13, fontWeight: 500, color: 'var(--muted)', borderLeft: '1px solid rgba(0,0,0,.12)', paddingLeft: 10 }}>Prodavnica</span>
+            <img src={`${import.meta.env.BASE_URL}logo/biromarket-024-logo.svg`} alt="Biromarket 024" style={{ height: 30, width: 'auto', display: 'block' }} /><span style={{ fontSize: 13, fontWeight: 500, color: 'var(--muted)', borderLeft: '1px solid rgba(0,0,0,.12)', paddingLeft: 10 }}>Prodavnica</span>
           </Link>
           <label className="search"><Icon name="search" size={18} color="#6e6e73" stroke={2} /><input type="search" placeholder="Pretraži papir, registratore, tonere…" aria-label="Pretraga proizvoda" /></label>
           <span style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
