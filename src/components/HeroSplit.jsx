@@ -10,6 +10,7 @@ import { useLang } from '../i18n.jsx'
    - kicker, description and price card fade to the matching slide. */
 
 const DELAY = 5000
+const RAINBOW = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976']
 const TEXT_LAG = 300
 const SLIDES = [
   { img: 'creative-ai/cs-hero.webp', color: '#ED1C24', pos: '50% 50%', price: '690 RSD' },
@@ -114,7 +115,7 @@ export default function HeroSplit() {
             </div>
           </div>
           <div className="glass float-card left" style={{ left: -24, bottom: 28, display: 'flex', alignItems: 'center', gap: 12, padding: '14px 18px' }}>
-            <span style={{ display: 'flex', paddingLeft: 6 }}>{SLIDES.map((sl, k) => <span key={k} style={{ width: 22, height: 22, borderRadius: '50%', background: sl.color, marginLeft: -6, boxShadow: '0 0 0 2px #fff', transform: k === t ? 'scale(1.18)' : 'none', transition: 'transform 300ms ease', zIndex: k === t ? 1 : 0 }} />)}</span>
+            <span style={{ display: 'flex', paddingLeft: 6 }} aria-hidden="true">{RAINBOW.map((c) => <span key={c} style={{ width: 22, height: 22, borderRadius: '50%', background: c, marginLeft: -6, boxShadow: '0 0 0 2px #fff' }} />)}</span>
             <span key={`c${t}`} className="stack hs-fade"><span style={{ fontSize: 13, color: 'var(--muted)' }}>{cardLabel}</span><span style={{ fontSize: 17, fontWeight: 700 }}>{price}</span></span>
           </div>
           <div className="hs-dots">
