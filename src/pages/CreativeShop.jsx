@@ -4,6 +4,7 @@ import { Icon, img, scrollTo } from '../components/ui.jsx'
 import { ProductCard, useCart } from '../components/Shop.jsx'
 import { useLang, LangSwitch } from '../i18n.jsx'
 import HeroCarousel from '../components/HeroCarousel.jsx'
+import HeroSplit from '../components/HeroSplit.jsx'
 
 const RB = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 const P_BASE = [
@@ -89,7 +90,7 @@ export default function CreativeShop({ variant = 'classic' }) {
         </div>
       </header>
 
-      {variant === 'carousel' ? <HeroCarousel /> : (
+      {variant === 'carousel' ? <HeroCarousel /> : variant === 'split' ? <HeroSplit /> : (
       <section style={{ padding: '48px 0 64px' }}>
         <div className="wrap split">
           <div className="stack" style={{ gap: 22 }}>
@@ -203,6 +204,7 @@ export default function CreativeShop({ variant = 'classic' }) {
         <span>Hero</span>
         <Link to="/creative-shop" className={variant === 'classic' ? 'on' : ''}>A</Link>
         <Link to="/creative-shop/karusel" className={variant === 'carousel' ? 'on' : ''}>B</Link>
+        <Link to="/creative-shop/hero-c" className={variant === 'split' ? 'on' : ''}>C</Link>
       </div>
     </div>
   )

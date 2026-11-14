@@ -24,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/fotokopirnica" element={<Fotokopirnica />} />
           <Route path="/kancelarija" element={<Kancelarija />} />
           <Route path="/creative-shop" element={<CreativeShop />} />
+          <Route path="/creative-shop/hero-c" element={<CreativeShop variant="split" />} />
           <Route path="/creative-shop/karusel" element={<CreativeShop variant="carousel" />} />
           <Route path="/creative-shop/dizajner" element={<Dizajner />} />
           <Route path="*" element={<Home />} />
