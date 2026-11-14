@@ -429,3 +429,10 @@ button { font-family: inherit; }
 @keyframes hsIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .hs-dots { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 16px; }
 @media (prefers-reduced-motion: reduce) { .hs-fade { animation: none; } .hs-slide img { transition: none; transform: none; } }
+
+/* Creative Shop category tabs – sliding tinted highlight in the tab's own color */
+.cs-cats { position: relative; }
+.cs-cat { position: relative; z-index: 1; transition: color 200ms ease; }
+.cs-cat:hover, .cs-cat:focus-visible { color: #1d1d1f !important; }
+.cs-cat:focus-visible { outline: none; }
+.cs-cat-hl { border-radius: 10px 10px 0 0; pointer-events: none; z-index: 0; transition: background-color 220ms ease; }

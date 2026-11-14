@@ -1,4 +1,5 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { Follow, rectIn } from 'micro-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { Icon, img, scrollTo } from '../components/ui.jsx'
 import { ProductCard, useCart } from '../components/Shop.jsx'
@@ -58,6 +59,13 @@ const D = {
 
 export default function CreativeShop({ variant = 'classic' }) {
   const navigate = useNavigate()
+  const catsRef = useRef(null)
+  const [catHl, setCatHl] = useState(null)
+  const overCat = (e, i) => {
+    if (!catsRef.current) return
+    const r = rectIn(catsRef.current, e.currentTarget)
+    setCatHl({ rect: { x: r.x, y: r.y, width: r.width, height: r.height - 3 }, color: RB[i] })
+  }
   const pageRef = useRef(null)
   const { add, flyLayer, CartButton } = useCart(pageRef)
   const { tr } = useLang()
@@ -78,9 +86,10 @@ export default function CreativeShop({ variant = 'classic' }) {
             <CartButton icon="bag" />
           </span>
         </div>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 0, overflowX: 'auto' }}>
+        <div className="wrap cs-cats" ref={catsRef} onMouseLeave={() => setCatHl(null)} style={{ display: 'flex', alignItems: 'center', gap: 0, overflowX: 'auto' }}>
+          <Follow to={catHl ? catHl.rect : null} className="cs-cat-hl" aria-hidden="true" style={{ background: catHl ? `${catHl.color}24` : 'transparent' }} />
           {CATS.map((n, i) => (
-            <button key={n} onClick={() => (i === 0 ? navigate('/creative-shop/dizajner') : scrollTo('ponuda'))} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 16px', textAlign: 'center', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
+            <button key={n} className="cs-cat" onMouseEnter={(e) => overCat(e, i)} onFocus={(e) => overCat(e, i)} onBlur={() => setCatHl(null)} onClick={() => (i === 0 ? navigate('/creative-shop/dizajner') : scrollTo('ponuda'))} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 16px', textAlign: 'center', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
           ))}
           <LangSwitch className="cs-lang" />
           <Link to="/" className="cs-to-bm" aria-label={d.toBm}>
