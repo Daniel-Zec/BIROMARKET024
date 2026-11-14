@@ -78,9 +78,9 @@ export default function CreativeShop({ variant = 'classic' }) {
             <CartButton icon="bag" />
           </span>
         </div>
-        <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 28, overflowX: 'auto' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', gap: 0, overflowX: 'auto' }}>
           {CATS.map((n, i) => (
-            <button key={n} onClick={() => (i === 0 ? navigate('/creative-shop/dizajner') : scrollTo('ponuda'))} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 2px', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
+            <button key={n} onClick={() => (i === 0 ? navigate('/creative-shop/dizajner') : scrollTo('ponuda'))} style={{ background: 'none', border: 0, borderBottom: `3px solid ${RB[i]}`, color: '#3e3e3e', fontSize: 14, fontWeight: 500, padding: '12px 16px', textAlign: 'center', whiteSpace: 'nowrap', cursor: 'pointer' }}>{n}</button>
           ))}
           <LangSwitch className="cs-lang" />
           <Link to="/" className="cs-to-bm" aria-label={d.toBm}>
