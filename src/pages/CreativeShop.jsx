@@ -57,7 +57,7 @@ const D = {
   },
 }
 
-export default function CreativeShop({ variant = 'classic' }) {
+export default function CreativeShop({ variant = 'split' }) {
   const navigate = useNavigate()
   const catsRef = useRef(null)
   const [catHl, setCatHl] = useState(null)
@@ -209,12 +209,6 @@ export default function CreativeShop({ variant = 'classic' }) {
         <div style={{ display: 'flex', height: 6 }}>{RB.map((c) => <span key={c} style={{ flex: 1, background: c }} />)}</div>
       </footer>
       {flyLayer}
-      <div className="hero-switch" role="group" aria-label="Prototype: hero version">
-        <span>Hero</span>
-        <Link to="/creative-shop" className={variant === 'classic' ? 'on' : ''}>A</Link>
-        <Link to="/creative-shop/karusel" className={variant === 'carousel' ? 'on' : ''}>B</Link>
-        <Link to="/creative-shop/hero-c" className={variant === 'split' ? 'on' : ''}>C</Link>
-      </div>
     </div>
   )
 }

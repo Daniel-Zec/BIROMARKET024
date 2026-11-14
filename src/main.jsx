@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import 'micro-motion/styles.css'
 import './styles.css'
 import { ToastProvider, ScrollToTop, Reveal } from './components/ui.jsx'
@@ -23,8 +23,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/servis" element={<Servis />} />
           <Route path="/fotokopirnica" element={<Fotokopirnica />} />
           <Route path="/kancelarija" element={<Kancelarija />} />
-          <Route path="/creative-shop" element={<CreativeShop />} />
-          <Route path="/creative-shop/hero-c" element={<CreativeShop variant="split" />} />
+          <Route path="/creative-shop" element={<CreativeShop variant="split" />} />
+          <Route path="/creative-shop/hero-c" element={<Navigate to="/creative-shop" replace />} />
+          <Route path="/creative-shop/hero-a" element={<CreativeShop variant="classic" />} />
           <Route path="/creative-shop/karusel" element={<CreativeShop variant="carousel" />} />
           <Route path="/creative-shop/dizajner" element={<Dizajner />} />
           <Route path="*" element={<Home />} />
