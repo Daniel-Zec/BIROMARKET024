@@ -91,7 +91,7 @@ export default function HeroSplit() {
     <section style={{ padding: '48px 0 64px' }}>
       <div className="wrap split">
         <div className="stack" style={{ gap: 22 }}>
-          <span key={`k${t}`} className="hs-fade" style={{ alignSelf: 'flex-start', fontSize: 14, fontWeight: 700, color: '#fff', background: '#823967', borderRadius: 980, padding: '7px 14px' }}>{kick}</span>
+          <span key={`k${t}`} className="hs-fade" style={{ alignSelf: 'flex-start', fontSize: 14, fontWeight: 700, color: '#fff', background: s.color, borderRadius: 980, padding: '7px 14px', transition: 'background-color 400ms ease' }}>{kick}</span>
           <h1 className="h1" aria-live="polite">
             {d.h1a}<br />
             <span className="hs-line2" style={{ color: s.color }}><Roll variant="roll">{line2}</Roll></span>
