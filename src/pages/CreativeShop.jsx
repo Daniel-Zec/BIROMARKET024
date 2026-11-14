@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Icon, img, scrollTo } from '../components/ui.jsx'
 import { ProductCard, useCart } from '../components/Shop.jsx'
 import { useLang, LangSwitch } from '../i18n.jsx'
+import HeroCarousel from '../components/HeroCarousel.jsx'
 
 const RB = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 const P_BASE = [
@@ -54,7 +55,7 @@ const D = {
   },
 }
 
-export default function CreativeShop() {
+export default function CreativeShop({ variant = 'classic' }) {
   const navigate = useNavigate()
   const pageRef = useRef(null)
   const { add, flyLayer, CartButton } = useCart(pageRef)
@@ -88,6 +89,7 @@ export default function CreativeShop() {
         </div>
       </header>
 
+      {variant === 'carousel' ? <HeroCarousel /> : (
       <section style={{ padding: '48px 0 64px' }}>
         <div className="wrap split">
           <div className="stack" style={{ gap: 22 }}>
@@ -110,6 +112,7 @@ export default function CreativeShop() {
           </div>
         </div>
       </section>
+      )}
 
       <section className="sec" style={{ paddingTop: 16 }}>
         <div className="wrap stack" style={{ gap: 28 }}>
@@ -196,6 +199,11 @@ export default function CreativeShop() {
         <div style={{ display: 'flex', height: 6 }}>{RB.map((c) => <span key={c} style={{ flex: 1, background: c }} />)}</div>
       </footer>
       {flyLayer}
+      <div className="hero-switch" role="group" aria-label="Prototype: hero version">
+        <span>Hero</span>
+        <Link to="/creative-shop" className={variant === 'classic' ? 'on' : ''}>A</Link>
+        <Link to="/creative-shop/karusel" className={variant === 'carousel' ? 'on' : ''}>B</Link>
+      </div>
     </div>
   )
 }
