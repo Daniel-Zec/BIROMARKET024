@@ -26,6 +26,7 @@ export default function DesignerCredit({ site = "CLIENTSITE", size = "normal", t
 
   return (
     <a href={href} target="_blank" rel="noopener" title="Website designed by Daniel Zec, Senior Product Designer" style={linkStyle}>
+      <span>Designed by</span>
       <img
         src="https://danielzec.com/email-logo.png"
         width={small ? 17 : 24}
@@ -33,7 +34,7 @@ export default function DesignerCredit({ site = "CLIENTSITE", size = "normal", t
         alt="Daniel Zec"
         style={{ display: "block", border: 0, filter: theme === "dark" ? "invert(1)" : "none" }}
       />
-      <span>Designed by <strong>Daniel Zec</strong></span>
+      <strong>Daniel Zec</strong>
     </a>
   );
 }
