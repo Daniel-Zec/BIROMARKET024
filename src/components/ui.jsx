@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Follow, Toast, rectIn } from 'micro-motion'
 import { useLang, LangSwitch } from '../i18n.jsx'
+import DesignerCredit from './DesignerCredit.jsx'
 
 export const img = (name) => `${import.meta.env.BASE_URL}img/${name}`
 
@@ -151,7 +152,7 @@ export function Footer() {
           <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>{d.shops}</b><Link to="/kancelarija" style={{ textDecoration: 'none' }}>{d.p1}</Link><Link to="/creative-shop" style={{ textDecoration: 'none' }}>Creative Shop</Link></div>
           <div className="stack" style={{ gap: 8 }}><b style={{ color: 'var(--ink)', fontSize: 14 }}>{d.eco}</b><span>{d.ecoText}</span></div>
         </div>
-        <div style={{ borderTop: '1px solid rgba(0,0,0,.06)', paddingTop: 20 }}>© 2026 Biromarket 024 d.o.o. · {d.copy}</div>
+        <div className="foot-bottom"><span>© 2026 Biromarket 024 d.o.o. · {d.copy}</span><DesignerCredit site="biromarket024" size="normal" theme="light" /></div>
       </div>
     </footer>
   )

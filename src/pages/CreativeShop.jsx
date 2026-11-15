@@ -6,6 +6,7 @@ import { ProductCard, useCart } from '../components/Shop.jsx'
 import { useLang, LangSwitch } from '../i18n.jsx'
 import HeroCarousel from '../components/HeroCarousel.jsx'
 import HeroSplit from '../components/HeroSplit.jsx'
+import DesignerCredit from '../components/DesignerCredit.jsx'
 
 const RB = ['#ED1C24', '#EE7D15', '#F7BE43', '#BDCF37', '#55B976', '#437E81', '#823967', '#A0586A']
 const P_BASE = [
@@ -202,8 +203,11 @@ export default function CreativeShop({ variant = 'split' }) {
             </div>
           </div>
           <div className="cs-foot-bottom">
+            <div className="cs-foot-copy">
             <img src={`${import.meta.env.BASE_URL}logo/creativeshop-logo.svg`} alt="creativeshop.rs" style={{ height: 34, width: 'auto' }} />
             <span>© 2026 Creative Shop · {d.f.part} <Link to="/" style={{ color: 'inherit' }}>Biromarket 024 d.o.o.</Link>{d.f.partSuffix ? ` ${d.f.partSuffix}` : ''} · {d.f.proto}</span>
+            </div>
+            <DesignerCredit site="creativeshop" size="normal" theme="light" />
           </div>
         </div>
         <div style={{ display: 'flex', height: 6 }}>{RB.map((c) => <span key={c} style={{ flex: 1, background: c }} />)}</div>
