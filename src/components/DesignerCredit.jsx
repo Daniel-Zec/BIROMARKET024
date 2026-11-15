@@ -34,7 +34,6 @@ export default function DesignerCredit({ site = "CLIENTSITE", size = "normal", t
         alt="Daniel Zec"
         style={{ display: "block", border: 0, filter: theme === "dark" ? "invert(1)" : "none" }}
       />
-      <strong>Daniel Zec</strong>
     </a>
   );
 }
