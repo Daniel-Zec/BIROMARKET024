@@ -106,7 +106,7 @@ export default function Home() {
       <Nav />
 
       <section style={{ padding: '72px 0 88px' }}>
-        <div className="wrap split" style={{ gridTemplateColumns: 'minmax(0,1.05fr) minmax(0,1fr)' }}>
+        <div className="wrap split" style={{ '--cols': 'minmax(0,1.05fr) minmax(0,1fr)' }}>
           <div className="stack" style={{ gap: 28 }}>
             <span className="glass" style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 10, borderRadius: 980, padding: '8px 16px 8px 8px', fontSize: 14, color: 'var(--ink-2)' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', height: 28, padding: '0 10px', borderRadius: 980, background: 'var(--accent)', color: '#fff', fontWeight: 700, fontSize: 15 }}>
@@ -117,7 +117,7 @@ export default function Home() {
             <h1 className="h1" aria-label={d.h1aria}>{d.h1a} <RollWord words={d.words} /><br /><span className="muted">{d.h1b}</span></h1>
             <p className="lead" style={{ fontSize: 21, maxWidth: '34ch' }}>{d.lead}</p>
           </div>
-          <div style={{ position: 'relative' }}>
+          <div className="hero-photo" style={{ position: 'relative' }}>
             <div className="photo" style={{ aspectRatio: '4 / 3.4' }}>
               <img src={img('bm-kombiji-novo.webp')} alt={d.heroAlt} style={{ objectPosition: '62% 70%' }} />
             </div>
@@ -173,7 +173,7 @@ export default function Home() {
             <h2 className="h2">{d.aboutH}</h2>
             <p className="lead">{d.aboutLead}</p>
           </div>
-          <div className="stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0,1fr))', gap: 20 }}>
+          <div className="stats" style={{ display: 'grid', gap: 20 }}>
             {STAT_V.map(([v, plus], i) => ({ v, plus, label: d.stats[i] })).map((s) => (
               <div key={s.v} className="soft stack" style={{ padding: 28, gap: 8 }}>
                 <span style={{ fontSize: 56, fontWeight: 700, letterSpacing: '-.03em', lineHeight: 1, display: 'flex', alignItems: 'flex-start' }}>
@@ -193,7 +193,7 @@ export default function Home() {
             <span className="kick">{d.contactKick}</span>
             <h2 className="h2">{d.contactH}</h2>
           </div>
-          <div className="split" style={{ alignItems: 'start', gap: 24, gridTemplateColumns: 'minmax(0,1.1fr) minmax(0,1fr)' }}>
+          <div className="split" style={{ alignItems: 'start', gap: 24, '--cols': 'minmax(0,1.1fr) minmax(0,1fr)' }}>
             <div className="stack" style={{ gap: 12 }}>
               <div className="dept">
                 {DEPT_C.map(([ph, tel, mail], i) => [d.depts[i], ph, tel, mail]).map(([n, ph, tel, mail]) => (

@@ -79,11 +79,12 @@ export default function CreativeShop({ variant = 'split' }) {
     <div className="page" data-brand="creative" ref={pageRef}>
       <div style={{ display: 'flex', height: 5 }}>{RB.map((c) => <span key={c} style={{ flex: 1, background: c }} />)}</div>
       <header className="nav" style={{ background: 'rgba(251,250,246,.75)' }}>
-        <div className="wrap nav-row" style={{ height: 68 }}>
+        <div className="wrap nav-row cs-head" style={{ height: 68 }}>
           <Link to="/creative-shop" aria-label={d.home} style={{ display: 'block', lineHeight: 0 }}><img src={`${import.meta.env.BASE_URL}logo/creativeshop-logo.svg`} alt="creativeshop.rs" style={{ height: 46, width: 'auto' }} /></Link>
           <label className="search" style={{ maxWidth: 460 }}><Icon name="search" size={18} color="#6e6e73" stroke={2} /><input type="search" placeholder={d.searchPh} aria-label={d.searchAria} /></label>
-          <span style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-            <span className="cart"><Icon name="user" size={20} />{d.login}</span>
+          <span className="cs-actions" style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+            <LangSwitch className="cs-lang-top" />
+            <span className="cart" aria-label={d.login}><Icon name="user" size={20} /><span className="cs-login-label">{d.login}</span></span>
             <CartButton icon="bag" />
           </span>
         </div>

@@ -83,6 +83,14 @@ export function Nav() {
   const navRef = useRef(null)
   const [hl, setHl] = useState(null)
   const [scrolled, setScrolled] = useState(false)
+  const [menu, setMenu] = useState(false)
+  const { pathname } = useLocation()
+  useEffect(() => { setMenu(false) }, [pathname])
+  useEffect(() => {
+    if (!menu) return
+    const key = (e) => { if (e.key === 'Escape') setMenu(false) }
+    document.addEventListener('keydown', key); return () => document.removeEventListener('keydown', key)
+  }, [menu])
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 4)
     on(); window.addEventListener('scroll', on, { passive: true })
@@ -103,7 +111,17 @@ export function Nav() {
           <Link to="/#kontakt" onClick={() => setTimeout(() => scrollTo('kontakt'), 50)}>{d.contact}</Link>
         </nav>
         <LangSwitch />
+        <button type="button" className={`nav-burger${menu ? ' open' : ''}`} aria-expanded={menu} aria-controls="nav-sheet" aria-label={d.menu} onClick={() => setMenu((m) => !m)}>
+          <i /><i /><i />
+        </button>
       </div>
+      <nav id="nav-sheet" className={`nav-sheet${menu ? ' open' : ''}`} aria-label={d.menu} hidden={!menu}>
+        <div className="wrap">
+          <Link to="/" onClick={() => setMenu(false)}>{tr({ sr: 'Naslovna', hu: 'Főoldal', en: 'Home' })}</Link>
+          {d.links.map(([t, to]) => <NavLink key={to} to={to} onClick={() => setMenu(false)}>{t}</NavLink>)}
+          <Link to="/#kontakt" onClick={() => { setMenu(false); setTimeout(() => scrollTo('kontakt'), 80) }}>{d.contact}</Link>
+        </div>
+      </nav>
     </header>
   )
 }
